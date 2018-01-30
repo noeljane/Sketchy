@@ -33,14 +33,21 @@ app.use(bodyParser.urlencoded({extended: true}))
 app.use(bodyParser.json())
 app.use(flash())
 
-//app.use('/', userRoutes)
 
+// Root route
 app.get('/', (req, res) => {
-	res.send("working")
+	res.send("Landing Page!")
 })
+
+// User routes
+app.use('/', userRoutes)
+
+// Explore
+
+
+
+
 
 app.listen(port, (err) => {
 	console.log(err || "Server running on port " + port)
 })
-
-test
