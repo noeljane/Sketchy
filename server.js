@@ -34,15 +34,16 @@ app.use(bodyParser.json())
 app.use(flash())
 
 
+// User routes
+app.use('/', userRoutes)
+
+// Sketch routes
+app.use('/', sketchRoutes)
+
 // Root route
 app.get('/', (req, res) => {
 	res.send("Landing Page!")
 })
-
-// User routes
-app.use('/', userRoutes)
-
-// Explore
 
 
 
