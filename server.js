@@ -9,7 +9,10 @@ const
 	bodyParser = require('body-parser'),
 	session = require('express-session'),
 	MongoDBStore = require('connect-mongodb-session')(session),
-    passport = require('passport')
+	passport = require('passport')
+	userRoutes = require('./routes/users.js')
+	passportConfig = require('./config/passport.js')
+	
 	
 	
 // Environment port
@@ -29,6 +32,8 @@ app.use(cookieParser())
 app.use(bodyParser.urlencoded({extended: true}))
 app.use(bodyParser.json())
 app.use(flash())
+
+app.use('/', userRoutes)
 
 app.get('/', (req, res) => {
 	res.send("working")
