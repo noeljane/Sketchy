@@ -7,13 +7,13 @@ var $input = $('#search-term');
 //giphy
 function getRandomImage(){
     if($input.val()){
-        var url ='/random/' + $input.val()
+        var url ='/random/' + $input.val() //need url
     }else{
-        var url= '/random'
+        var url= '/random' //need url
     }
     console.log(url)
     var options ={
-        url:'/random/' + $input.val(),
+        url:'/random/' + $input.val(), //need url
         method: 'get'
     }
     $.ajax(options).done(function(data){
@@ -27,7 +27,7 @@ function getRandomImage(){
 
 function searchImage(){
     var options ={
-        url:'/search/' + $input.val(), 
+        url:'/search/' + $input.val(), //need url
         method: 'get'
     }
     $.ajax(options).done(function(data){
@@ -47,9 +47,12 @@ function displyImage(url){
 
 //user canvas
 var $myCanvas = $('#myCanvas');
-var $ctx = $myCanvas.getContext('2d')
+var $ctx = $myCanvas.getContext('2d');
 $ctx.beginPath();
 $ctx.arc(100, 100, 50, 1.5 * Math.PI, 0.5 * Math.PI, false);
 $ctx.lineWidth = 10;
 $ctx.stroke();
 var imgData = $myCanvas.toDataURL();
+var myImage = new Image();
+myImage.src = imgData;
+$ctx.drawImage(myImage, 0, 0);
