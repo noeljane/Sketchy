@@ -13,6 +13,7 @@ const
 	passportConfig = require
 	('./config/passport.js'),
 	userRoutes = require('./routes/users.js')
+	sketchRoutes = require('./routes/sketches.js')
 	
 	
 	
