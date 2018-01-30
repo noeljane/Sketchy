@@ -13,6 +13,7 @@ const
 	passportConfig = require
 	('./config/passport.js'),
 	userRoutes = require('./routes/users.js')
+	sketchRoutes = require('./routes/sketches.js')
 	
 	
 	
@@ -53,15 +54,16 @@ app.use(passport.initialize())
 app.use(passport.session())
 
 
+// User routes
+app.use('/', userRoutes)
+
+// Sketch routes
+app.use('/', sketchRoutes)
+
 // Root route
 app.get('/', (req, res) => {
 	res.render('index')
 })
-
-// User routes
-app.use('/', userRoutes)
-
-// Explore
 
 
 
