@@ -1,7 +1,8 @@
 // Sketch routes
 const
     express = require('express'),
-    sketchRouter = new express.Router()
+    sketchRouter = new express.Router(),
+    Sketch = require('../models/Sketch.js')
 
 // Get all sketches
 sketchRouter.get('/sketches', (req, res) => {

@@ -12,7 +12,9 @@ const
 	passport = require('passport'),
 	passportConfig = require
 	('./config/passport.js'),
-	userRoutes = require('./routes/users.js')
+	User = require('./models/User.js'),
+	userRoutes = require('./routes/users.js'),
+	Sketch = require('./models/Sketch.js'),
 	sketchRoutes = require('./routes/sketches.js')
 	
 	
@@ -64,8 +66,6 @@ app.use('/', sketchRoutes)
 app.get('/', (req, res) => {
 	res.render('index')
 })
-
-
 
 
 
