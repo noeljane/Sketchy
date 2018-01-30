@@ -34,7 +34,6 @@ app.use(bodyParser.json())
 app.use(flash())
 
 
-
 // Root route
 app.get('/', (req, res) => {
 	res.send("Landing Page!")
