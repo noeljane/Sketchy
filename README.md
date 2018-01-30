@@ -1,2 +1,31 @@
 # Sketchy
-WDI-54 Project 3
+
+--
+###Explanation of Technologies Used
+
+--
+
+###Approach Taken
+
+
+--
+
+
+### Installation Instructions
+
+--
+
+### Trello Board
+
+--
+
+### Planning Docs
+--
+
+### Unsolved Problems
+
+--
+
+### Major Victories
+
+--
