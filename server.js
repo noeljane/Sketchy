@@ -9,9 +9,10 @@ const
 	bodyParser = require('body-parser'),
 	session = require('express-session'),
 	MongoDBStore = require('connect-mongodb-session')(session),
-	passport = require('passport')
+	passport = require('passport'),
+	passportConfig = require
+	('./config/passport.js'),
 	userRoutes = require('./routes/users.js')
-	passportConfig = require('./config/passport.js')
 	
 	
 	
@@ -25,6 +26,10 @@ mongoose.connect(mongoConnectionString, (err) => {
 	console.log(err || "Connected to MongoDB!")
 })
 
+const store = new MongoDBStore({
+	uri: mongoConnectionString, 
+	collection:'sessions'
+})
 
 // Middleware
 app.use(logger('dev'))
@@ -32,6 +37,20 @@ app.use(cookieParser())
 app.use(bodyParser.urlencoded({extended: true}))
 app.use(bodyParser.json())
 app.use(flash())
+
+// ejs configuration
+app.set('view engine', 'ejs')
+app.use(ejsLayouts)
+app.use(session({
+	secret: "boomchakalaka",
+	cookie: {maxAge: 60000000},
+	resave: true, 
+	saveUnintialized: false,
+	store: store
+}))
+
+app.use(passport.initialize())
+app.use(passport.session())
 
 
 // Root route
