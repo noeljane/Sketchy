@@ -45,7 +45,7 @@ app.use(session({
 	secret: "boomchakalaka",
 	cookie: {maxAge: 60000000},
 	resave: true, 
-	saveUnintialized: false,
+	saveUninitialized: false,
 	store: store
 }))
 
@@ -55,7 +55,7 @@ app.use(passport.session())
 
 // Root route
 app.get('/', (req, res) => {
-	res.send("Landing Page!")
+	res.render('index')
 })
 
 // User routes
