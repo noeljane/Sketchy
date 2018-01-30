@@ -53,15 +53,16 @@ app.use(passport.initialize())
 app.use(passport.session())
 
 
+// User routes
+app.use('/', userRoutes)
+
+// Sketch routes
+app.use('/', sketchRoutes)
+
 // Root route
 app.get('/', (req, res) => {
 	res.render('index')
 })
-
-// User routes
-app.use('/', userRoutes)
-
-// Explore
 
 
 
