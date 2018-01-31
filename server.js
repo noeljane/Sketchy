@@ -16,7 +16,9 @@ const
 	User = require('./models/User.js'),
 	userRoutes = require('./routes/users.js'),
 	Sketch = require('./models/Sketch.js'),
-	sketchRoutes = require('./routes/sketches.js')
+	sketchRoutes = require('./routes/sketches.js'),
+	request = require('request'),
+    apiKey = "0mW1T7M71BJ8ELXmW6mTgyytZxBA5qaW"
 	
 	
 	
@@ -69,6 +71,47 @@ app.use('/', sketchRoutes)
 // Root route
 app.get('/', (req, res) => {
 	res.render('index')
+})
+
+// Giphy API
+app.get('/random', (req, res) => {
+	var url = `https://api.giphy.com/v1/gifs/random?api_key=${apiKey}`
+	// contact giphy at the api url endpoint
+	request.get(url, (err, response, body) => {
+	  // when we get info back, turn it into a JS object
+	  var data = JSON.parse(body)
+	  // the image url is inside
+	  var imgUrl = data.data.image_original_url
+	  // send an image tag to the browser to finish the response
+	  res.send(data)
+	})
+  })
+
+app.get('/search/:searchstr', (req, res) => {
+	var searchstr = req.params.searchstr
+	var url = `http://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=${searchstr}`
+	request.get(url, (err, response, body) => {
+		var data = JSON.parse(body)
+		if(data.data.length) {
+			var imgUrl = data.data[0].images.original.url
+		} else {
+			var imgUrl = "https://pbs.twimg.com/profile_images/600060188872155136/st4Sp6Aw.jpg"
+		}
+		res.send(data)
+	})
+})
+
+app.get('/random/:tag', (req, res) => {
+	var url = `http://api.giphy.com/v1/gifs/random?api_key=${apiKey}&tag=${req.params.tag}`
+	request.get(url, (err, response, body) => {
+		var data = JSON.parse(body)
+		if(data.data.length) {
+			var imgUrl = data.data[0].images.original.url
+		} else {
+			var imgUrl = "https://pbs.twimg.com/profile_images/600060188872155136/st4Sp6Aw.jpg"
+		}
+		res.send(data)
+	})
 })
 
 
