@@ -8,7 +8,13 @@ const
 sketchRouter.get('/sketches', (req, res) => {
     Sketch.find({}, (err, allSketches) => {
         if(err) return console.log(err)
-        res.json(allSketches)
+        // var imageArray =[]
+        // allSketches.forEach(function(s){
+        //     imageArray.push(s.imgUrl)
+        // })
+        //res.json(allSketches)
+        res.render('../views/sketches/indexsketches', {sketches: allSketches})
+
     })
 })
 
@@ -21,7 +27,8 @@ sketchRouter.get('/sketches/new', (req, res) => {
 sketchRouter.get('/sketches/:id', (req, res) => {
     Sketch.findById(req.params.id, (err, thatSketch) => {
         if(err) return console.log(err)
-        res.json(thatSketch)
+        //res.json(thatSketch)
+        res.render('../views/sketches/showsketches', {title: "This sketch", sketch:thatSketch})
     })
 })
 
