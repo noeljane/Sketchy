@@ -10,10 +10,11 @@
 <div id="giphy-image-container"></div>
 
 <form id="giphy-form" method="post" action="/sketches">
-    <input id="url-field" type="hidden" name="imgUrl" />
+    <input id="url-field" type="hidden" name="giphy_url" />
     <input type="text" name="title" placeholder="Title" />
     <input type="text" name="tag" placeholder="Add a tag" />
-    <button>Save Image</button>
+    <input id="sketchy-url-field" type="hidden" name="imgUrl" />
+    <button id="save-btn">Save My Sketchyyyyy</button>
 </form>
 </div>
 
@@ -27,12 +28,6 @@
 <button id="clear-btn">Clear</button>
 <input type="color" id="color-picker">
 <input type="range" id="brush-size" min="1" max="50" value="10">
-
-<form id="sketchy-form" method="post" action="/sketches">
-    <input id="sketchy-url-field" type="hidden" name="sketchyImgUrl" />
-    <button id="save-btn">Save Sketchy</button>
-
-</form>
 
 </div>
 </div>

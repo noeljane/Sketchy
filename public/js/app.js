@@ -2,6 +2,7 @@ var $randomBtn = $('#random-btn');
 var $imageContainer = $('#giphy-image-container');
 var $searchBtn = $('#search-btn');
 var $input = $('#search-term');
+var sketchyImg = $('#myCanvas')
 
 
 // Giphy API
@@ -15,8 +16,8 @@ function searchButton () {
 
     $.ajax(options).done(function(data) {
         var randomNum = Math.ceil(Math.random() * (25 - 0) + 0)
-        var imgUrl = data.data[randomNum].images.original.url
-        displayImage(imgUrl)
+        var giphy_url = data.data[randomNum].images.original.url
+        displayImage(igiphy_url)
     })
 }
 
@@ -34,8 +35,8 @@ function getRandomImage () {
     }
 
     $.ajax(options).done(function(data) {
-        var imgUrl = data.data.image_original_url
-        displayImage(imgUrl)
+        var giphy_url = data.data.image_original_url
+        displayImage(giphy_url)
     })
 }
 
@@ -49,9 +50,14 @@ $randomBtn.on('click', getRandomImage)
 $searchBtn.on('click', searchButton)
 
 $('#giphy-form').on('submit', function(evt) {
-    var imgUrl = $('#giphy-image-container').children('img').first().attr('src')
+    var giphy_url = $('#giphy-image-container').children('img').first().attr('src')
+    $('#url-field').val(giphy_url)
+    console.log(giphy_url)
+    var imgUrl = sketchyImg.toDataURL()
     console.log(imgUrl)
-    $('#url-field').val(imgUrl)
+    $('#canvas-image-container').children('img').first().attr('src')
+
+    $('sketchy-url-field').val(imgUrl)
 })
 
 
@@ -100,8 +106,6 @@ function init () {
         var rect = canvas[0].getBoundingClientRect();
         brush.x = e.clientX - rect.left;
         brush.y = e.clientY - rect.top;
-
-        console.log('brush x: ' + brush.x);
 
         currentStroke.points.push({
             x: brush.x,
