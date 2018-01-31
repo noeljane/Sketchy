@@ -1,49 +1,52 @@
 var $randomBtn = $('#random-btn');
-var $imageContainer = $('#image-container');
+var $imageContainer = $('#giphy-image-container');
 var $searchBtn = $('#search-btn');
 var $input = $('#search-term');
 
 
-//giphy
-function getRandomImage(){
-    if($input.val()){
-        var url ='/random/' + $input.val() //need url
-    }else{
-        var url= '/random' //need url
-    }
-    console.log(url)
-    var options ={
-        url:'/random/' + $input.val(), //need url
+// Giphy API
+
+function searchButton () {
+    var searchVal = $('#search-term').val()
+    var options = {
+        url: '/search/' + searchVal,
         method: 'get'
     }
-    $.ajax(options).done(function(data){
+
+    $.ajax(options).done(function(data) {
+        var randomNum = Math.ceil(Math.random() * (25 - 0) + 0)
+        var imgUrl = data.data[randomNum].images.original.url
+        displayImage(imgUrl)
+    })
+}
+
+function getRandomImage () {
+    var searchVal = $('#search-term').val()
+    if(searchVal) {
+        var url ='/random/' + searchVal
+    } else {
+        var url = '/random'
+    }
+
+    var options = {
+        url: url,
+        method: 'get'
+    }
+
+    $.ajax(options).done(function(data) {
         var imgUrl = data.data.image_original_url
-        displyImage(imgUrl)
+        displayImage(imgUrl)
     })
 }
- $randomBtn.on('click', getRandomImage)
 
-
-
-function searchImage(){
-    var options ={
-        url:'/search/' + $input.val(), //need url
-        method: 'get'
-    }
-    $.ajax(options).done(function(data){
-        console.log(data)
-        var imgUrl = data.data[0].images.original.url
-        displyImage(imgUrl)
-    })
-}
-$searchBtn.on('click', searchImage)
-
-
-function displyImage(url){
+function displayImage(url) {
     var $img = $('<img>')
     $img.attr('src', url)
     $imageContainer.html($img)
-}
+  }
+
+$randomBtn.on('click', getRandomImage)
+$searchBtn.on('click', searchButton)
 
 //user canvas
 //variables
