@@ -2,7 +2,6 @@ var $randomBtn = $('#random-btn');
 var $imageContainer = $('#giphy-image-container');
 var $searchBtn = $('#search-btn');
 var $input = $('#search-term');
-var sketchyImg = $('#myCanvas')
 
 
 // Giphy API
@@ -52,12 +51,9 @@ $searchBtn.on('click', searchButton)
 $('#giphy-form').on('submit', function(evt) {
     var giphy_url = $('#giphy-image-container').children('img').first().attr('src')
     $('#url-field').val(giphy_url)
-    console.log(giphy_url)
-    var imgUrl = sketchyImg.toDataURL()
+    var imgUrl = myCanvas.toDataURL()
     console.log(imgUrl)
-    $('#canvas-image-container').children('img').first().attr('src')
-
-    $('sketchy-url-field').val(imgUrl)
+    $('#sketchy-url-field').val(imgUrl)
 })
 
 
@@ -163,9 +159,3 @@ function init () {
 }
 
 $(init);
-
-// $('#sketchy-form').on('submit', function(evt) {
-//     var sketchyImgUrl = $('#canvas-image-container').children('img').first().attr('src')
-//     console.log(sketchyImgUrl)
-//     $('#sketchy-url-field').val(sketchyImgUrl)
-// })
