@@ -3,6 +3,7 @@ const
     app = express(),
     ejsLayouts = require('express-ejs-layouts'),
 	mongoose = require('mongoose'),
+	cors = require('cors'),
 	flash = require('connect-flash'),
 	logger = require('morgan'),
 	cookieParser = require('cookie-parser'),
@@ -19,6 +20,8 @@ const
 	
 	
 	
+app.use(cors())
+
 // Environment port
 const
 port = process.env.PORT || 3000,
