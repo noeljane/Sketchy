@@ -19,7 +19,7 @@ const
 	Sketch = require('./models/Sketch.js'),
 	sketchRoutes = require('./routes/sketches.js'),
 	request = require('request'),
-    apikey = process.env.APIKEY
+    apiKey = process.env.APIKEY
 	
 	
 	
