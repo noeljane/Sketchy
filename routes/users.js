@@ -39,7 +39,7 @@ userRouter.get('/logout', (req, res) => {
 userRouter.get('/users', (req,res)=>{
     User.find({},(err, allUsers)=>{
         if(err) return console.log(err)
-        res.json(allUsers)
+        res.render('../views/users_views/userindex', {users:allUsers})
     })
 
 })
