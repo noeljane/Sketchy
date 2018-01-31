@@ -1,13 +1,13 @@
+<div id="main-container">
 
 <!-- giphy -->
+<div id="giphy-box" style="float:left">
 <button id="random-btn">Get random Image</button>
 <div>
         <input type="text" id="search-term" placeholder="search">
         <button id="search-btn">Search</button>
 </div>
-<div id="giphy-image-container">
-    <img src="https://media.giphy.com/media/4Iw2OzgiiTc4M/giphy.gif" />
-</div>
+<div id="giphy-image-container"></div>
 
 <form id="giphy-form" method="post" action="/sketches">
     <input id="url-field" type="hidden" name="imgUrl" />
@@ -15,19 +15,25 @@
     <input type="text" name="tag" placeholder="Add a tag" />
     <button>Save Image</button>
 </form>
-
-<div id="canvas-container">
-    <canvas id="myCanvas" width="300" height="300"></canvas>
 </div>
 
-<script>
-    $('#giphy-form').on('submit', function(evt) {
-        var imgUrl = $('#giphy-image-container').children('img').first().attr('src')
-        console.log(imgUrl)
-        $('#url-field').val(imgUrl)
-    })
-</script>
-
 <!--user canvas-->
+<div id="sketchy-box" style="float:right">
+<div id="canvas-image-container">
+    <canvas id="myCanvas" width="600" height="600"></canvas>
+</div>
 
+<button id="undo-btn">Undo</button>
+<button id="clear-btn">Clear</button>
+<input type="color" id="color-picker">
+<input type="range" id="brush-size" min="1" max="50" value="10">
+
+<form id="sketchy-form" method="post" action="/sketches">
+    <input id="sketchy-url-field" type="hidden" name="sketchyImgUrl" />
+    <button id="save-btn">Save Sketchy</button>
+
+</form>
+
+</div>
+</div>
 <script src="/js/app.js"></script>
