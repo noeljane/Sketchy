@@ -30,7 +30,12 @@ sketchRouter.post('/sketches', (req, res) => {
 
 
 // Delete a specific sketch
-sketchRouter.delete('/sketches/:id', )
+sketchRouter.delete('/sketches/:id', (req, res) => {
+    Sketch.findByIdAndRemove(req.params.id, (err, deletedSketch) => {
+        if(err) return console.log(err)
+        res.json({message: "Sketch deleted! 🐲"})
+    })
+})
 
 
 module.exports = sketchRouter
