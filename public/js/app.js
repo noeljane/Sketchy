@@ -46,13 +46,20 @@ function displyImage(url){
 }
 
 //user canvas
-var $myCanvas = $('#myCanvas');
-var $ctx = $myCanvas.getContext('2d');
-$ctx.beginPath();
-$ctx.arc(100, 100, 50, 1.5 * Math.PI, 0.5 * Math.PI, false);
-$ctx.lineWidth = 10;
-$ctx.stroke();
-var imgData = $myCanvas.toDataURL();
-var myImage = new Image();
-myImage.src = imgData;
-$ctx.drawImage(myImage, 0, 0);
+//variables
+var myCanvas = document.getElementById('myCanvas')
+var ctx = myCanvas.getContext('2d')
+
+ctx.beginPath()
+ctx.arc(100, 100, 50, 1.5 * Math.PI, 0.5 * Math.PI, false)
+ctx.lineWidth = 15
+ctx.stroke()
+
+// var myImage = new Image()
+// myImage.src = imgData
+// $ctx.drawImage(myImage, 0, 0)
+
+
+
+//Save the image
+//var imgData = $myCanvas.toDataURL()
