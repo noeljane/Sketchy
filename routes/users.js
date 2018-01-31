@@ -35,5 +35,13 @@ userRouter.get('/logout', (req, res) => {
     req.logout()
     res.redirect('/')
 })
+
+userRouter.get('/users', (req,res)=>{
+    User.find({},(err, allUsers)=>{
+        if(err) return console.log(err)
+        res.render('../views/users_views/userindex', {users:allUsers})
+    })
+
+})
     
 module.exports = userRouter
