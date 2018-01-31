@@ -7,6 +7,8 @@ const
         tag: String, 
         _by:{type:mongoose.Schema.Types.ObjectId, ref: 'User'},
         giphy_url: String,
+        giphy_title: String,
+        giphy_tag: String, 
     })
 
 const Sketch = mongoose.model('Sketch', sketchSchema)
