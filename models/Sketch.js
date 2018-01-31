@@ -4,7 +4,7 @@ const
     sketchSchema = new mongoose.Schema({
         imgUrl: String,
         title: String,
-        tag: String, 
+        tag: String,
         _by:{type:mongoose.Schema.Types.ObjectId, ref: 'User'},
         giphy_url: String,
         giphy_title: String,

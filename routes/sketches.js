@@ -8,13 +8,12 @@ const
 sketchRouter.get('/sketches', (req, res) => {
     Sketch.find({}, (err, allSketches) => {
         if(err) return console.log(err)
-        var imageArray =[]
-        allSketches.forEach(function(s){
-            imageArray.push(s.imgUrl)
-        })
-        console.log(imageArray)
-        res.json(allSketches)
-        //res.render('../views/sketches/indexsketches', {images : imageArray})
+        // var imageArray =[]
+        // allSketches.forEach(function(s){
+        //     imageArray.push(s.imgUrl)
+        // })
+        //res.json(allSketches)
+        res.render('../views/sketches/indexsketches', {sketches: allSketches})
 
     })
 })
