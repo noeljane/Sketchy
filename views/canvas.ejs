@@ -16,18 +16,16 @@
     <button>Save Image</button>
 </form>
 
+<!--user canvas-->
 <div id="canvas-container">
-    <canvas id="myCanvas" width="300" height="300"></canvas>
+    <canvas id="myCanvas" width="600" height="600"></canvas>
 </div>
 
-<script>
-    $('#giphy-form').on('submit', function(evt) {
-        var imgUrl = $('#giphy-image-container').children('img').first().attr('src')
-        console.log(imgUrl)
-        $('#url-field').val(imgUrl)
-    })
-</script>
+<button id="undo-btn">Undo</button>
+<button id="clear-btn">Clear</button>
+<button id="save-btn">Save Sketchy</button>
+<input type="color" id="color-picker">
+<input type="range" id="brush-size" min="1" max="50" value="10">
 
-<!--user canvas-->
 
 <script src="/js/app.js"></script>
