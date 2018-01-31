@@ -8,7 +8,9 @@ const
 sketchRouter.get('/sketches', (req, res) => {
     Sketch.find({}, (err, allSketches) => {
         if(err) return console.log(err)
-        res.json(allSketches)
+        //res.json(allSketches)
+        res.render('../views/sketches/indexsketches', {sketches : allSketches})
+
     })
 })
 
