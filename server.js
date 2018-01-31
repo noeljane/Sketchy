@@ -1,4 +1,5 @@
 const
+	dotenv = require('dotenv').config()
     express = require('express'),
     app = express(),
     ejsLayouts = require('express-ejs-layouts'),
@@ -18,7 +19,7 @@ const
 	Sketch = require('./models/Sketch.js'),
 	sketchRoutes = require('./routes/sketches.js'),
 	request = require('request'),
-    apiKey = "0mW1T7M71BJ8ELXmW6mTgyytZxBA5qaW"
+    apikey = process.env.APIKEY
 	
 	
 	
