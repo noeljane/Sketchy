@@ -11,6 +11,12 @@ sketchRouter.get('/sketches', (req, res) => {
         res.json(allSketches)
     })
 })
+
+// Form to create new sketch
+sketchRouter.get('/sketches/new', (req, res) => {
+    res.render('canvas')
+})
+
 // Get specific sketch
 sketchRouter.get('/sketches/:id', (req, res) => {
     Sketch.findById(req.params.id, (err, thatSketch) => {
@@ -18,8 +24,13 @@ sketchRouter.get('/sketches/:id', (req, res) => {
         res.json(thatSketch)
     })
 })
+
+
+
 // Create new sketch
 sketchRouter.post('/sketches', (req, res) => {
+    console.log("Incoming image YAYYY!")
+    console.log(req.body)
     Sketch.create(req.body, (err, newSketch) => {
         if(err) return console.log(err)
         res.json({message: "Sketch created! 🐲", sketch: newSketch})

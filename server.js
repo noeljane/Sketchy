@@ -44,6 +44,7 @@ app.use(flash())
 // ejs configuration
 app.set('view engine', 'ejs')
 app.use(ejsLayouts)
+app.use(express.static(`${__dirname}/public`))
 app.use(session({
 	secret: "boomchakalaka",
 	cookie: {maxAge: 60000000},
