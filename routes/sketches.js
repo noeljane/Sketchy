@@ -13,7 +13,7 @@ sketchRouter.get('/sketches', (req, res) => {
         //     imageArray.push(s.imgUrl)
         // })
         //res.json(allSketches)
-        res.render('../views/sketches/indexsketches', {sketches: allSketches})
+        res.render('sketches/indexsketches', {sketches: allSketches})
 
     })
 })
@@ -28,7 +28,7 @@ sketchRouter.get('/sketches/:id', (req, res) => {
     Sketch.findById(req.params.id, (err, thatSketch) => {
         if(err) return console.log(err)
         //res.json(thatSketch)
-        res.render('../views/sketches/showsketches', {title: "This sketch", sketch:thatSketch})
+        res.render('sketches/showsketches', {title: "This sketch", sketch:thatSketch})
     })
 })
 
