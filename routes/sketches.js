@@ -14,7 +14,6 @@ sketchRouter.get('/sketches', (req, res) => {
         // })
         //res.json(allSketches)
         res.render('sketches/indexsketches', {sketches: allSketches})
-
     })
 })
 
