@@ -44,7 +44,12 @@ sketchRouter.post('/sketches', (req, res) => {
 })
 
 // Edit sketch?🧐
-
+sketchRouter.patch('/sketches/:id', (req, res)=>{
+    Sketch.findById(req.params.id, req.body, (err,updatedSketch)=>{
+        if(err) return console.log(err)
+        res.json({message: "Sketch updated!", sketch:updatedSketch})
+    })
+})
 
 // Delete a specific sketch
 sketchRouter.delete('/sketches/:id', (req, res) => {

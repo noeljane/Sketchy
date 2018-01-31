@@ -1,5 +1,9 @@
 <h1>Sketches</h1>
 <!--need help fixing this so the images show up with title -->
 <% sketches.forEach(function(s){ %>
+    <h3><%= s.title %> </h3>
+    <h6><%= s.id %> </h6>
+    <h6><%= s._by %> </h6>
     <img src='<%= s.imgUrl %>' />
+
 <% }) %>
