@@ -16,6 +16,10 @@
     <button>Save Image</button>
 </form>
 
+<div id="canvas-container">
+    <canvas id="myCanvas" width="300" height="300"></canvas>
+</div>
+
 <script>
     $('#giphy-form').on('submit', function(evt) {
         var imgUrl = $('#giphy-image-container').children('img').first().attr('src')
@@ -25,6 +29,5 @@
 </script>
 
 <!--user canvas-->
-<canvas id="myCanvas" width="300" height="300"></canvas>
 
 <script src="/js/app.js"></script>
