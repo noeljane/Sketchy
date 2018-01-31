@@ -26,7 +26,7 @@ mongoConnectionString = process.env.MONGODB_URL || 'mongodb://localhost/sketchy'
 
 // Mongoose connection
 mongoose.connect(mongoConnectionString, (err) => {
-	console.log(err || "Connected to MongoDB!")
+	console.log(err || "Connected to MongoDB! 🐲")
 })
 
 const store = new MongoDBStore({
