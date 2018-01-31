@@ -1,5 +1,7 @@
+<div id="main-container">
 
 <!-- giphy -->
+<div id="giphy-box" style="float:left">
 <button id="random-btn">Get random Image</button>
 <div>
         <input type="text" id="search-term" placeholder="search">
@@ -15,17 +17,25 @@
     <input type="text" name="tag" placeholder="Add a tag" />
     <button>Save Image</button>
 </form>
+</div>
 
 <!--user canvas-->
-<div id="canvas-container">
+<div id="sketchy-box" style="float:right">
+<div id="canvas-image-container">
     <canvas id="myCanvas" width="600" height="600"></canvas>
 </div>
 
 <button id="undo-btn">Undo</button>
 <button id="clear-btn">Clear</button>
-<button id="save-btn">Save Sketchy</button>
 <input type="color" id="color-picker">
 <input type="range" id="brush-size" min="1" max="50" value="10">
 
+<form id="sketchy-form" method="post" action="/sketches">
+    <input id="sketchy-url-field" type="hidden" name="sketchyImgUrl" />
+    <button id="save-btn">Save Sketchy</button>
 
+</form>
+
+</div>
+</div>
 <script src="/js/app.js"></script>

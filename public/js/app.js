@@ -157,3 +157,8 @@ function init () {
 
 $(init);
 
+// $('#sketchy-form').on('submit', function(evt) {
+//     var sketchyImgUrl = $('#canvas-image-container').children('img').first().attr('src')
+//     console.log(sketchyImgUrl)
+//     $('#sketchy-url-field').val(sketchyImgUrl)
+// })
