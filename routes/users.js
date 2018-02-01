@@ -36,12 +36,17 @@ userRouter.get('/logout', (req, res) => {
     res.redirect('/')
 })
 
+
 userRouter.get('/users', isLoggedIn, (req,res)=>{
+
+// Get all users
+userRouter.get('/users', (req,res)=>{
     User.find({},(err, allUsers)=>{
         if(err) return console.log(err)
         res.render('users_views/userindex', {users: allUsers})
     })
 })
+
 
 userRouter.get('/users/:id', isLoggedIn, (req, res) => {
     User.findById(req.params.id, (err, thatUser) => {
@@ -50,11 +55,16 @@ userRouter.get('/users/:id', isLoggedIn, (req, res) => {
     })
 })
 
+
+// Create new user
+
 userRouter.get('/users/new', (req, res) => {
     User.create(req.body, (err, newUser) => {
-
+        if(err) return console.log(err)
+        res.render('users_views/usernew', {title: "New User", user: newUser})
     })
 })
+
 
 userRouter.delete('/users/:id', (req,res)=>{
     User.findByIdAndRemove(req.params.id, (err, deletedUser)=>{
@@ -63,5 +73,11 @@ userRouter.delete('/users/:id', (req,res)=>{
 
     })
 })
+
+// Patch a specific user
+// userRouter.patch('/users/:id', (req, res) => {
+//     User.findBy
+// })
+
 
 module.exports = userRouter
