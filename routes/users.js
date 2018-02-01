@@ -38,10 +38,15 @@ userRouter.get('/logout', (req, res) => {
 
 
 userRouter.get('/users', isLoggedIn, (req,res)=>{
+    User.find({},(err, allUsers)=>{
+        if(err) return console.log(err)
+        res.render('users_views/userindex', {users: allUsers})
+    })
+})
 
 // Get all users
-userRouter.get('/users', (req,res)=>{
-    User.find({},(err, allUsers)=>{
+userRouter.get('/users', (req,res) => {
+    User.find({}, (err, allUsers) => {
         if(err) return console.log(err)
         res.render('users_views/userindex', {users: allUsers})
     })
@@ -66,11 +71,10 @@ userRouter.get('/users/new', (req, res) => {
 })
 
 
-userRouter.delete('/users/:id', (req,res)=>{
-    User.findByIdAndRemove(req.params.id, (err, deletedUser)=>{
+userRouter.delete('/users/:id', (req,res) => {
+    User.findByIdAndRemove(req.params.id, (err, deletedUser) => {
         if(err) return console.log(err)
         res.redirect('/')
-
     })
 })
 
