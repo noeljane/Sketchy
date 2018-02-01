@@ -13,7 +13,7 @@ sketchRouter.get('/sketches', (req, res) => {
         //     imageArray.push(s.imgUrl)
         // })
         //res.json(allSketches)
-        res.render('sketches/indexsketches', {sketches: allSketches})
+        res.render('sketches_views/explore', {sketches: allSketches})
     })
 })
 
@@ -27,7 +27,7 @@ sketchRouter.get('/sketches/:id', (req, res) => {
     Sketch.findById(req.params.id, (err, thatSketch) => {
         if(err) return console.log(err)
         //res.json(thatSketch)
-        res.render('sketches/showsketches', {title: "This sketch", sketch:thatSketch})
+        res.render('sketches_views/showsketches', {title: "This sketch", sketch:thatSketch})
     })
 })
 
@@ -44,12 +44,7 @@ sketchRouter.post('/sketches', (req, res) => {
 })
 
 // Edit sketch?🧐
-sketchRouter.patch('/sketches/:id', (req, res)=>{
-    Sketch.findById(req.params.id, req.body, (err,updatedSketch)=>{
-        if(err) return console.log(err)
-        res.json({message: "Sketch updated!", sketch:updatedSketch})
-    })
-})
+
 
 // Delete a specific sketch
 sketchRouter.delete('/sketches/:id', (req, res) => {
