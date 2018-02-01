@@ -1,3 +1,5 @@
+import { userInfo } from 'os';
+
 // User routes
 const
     express = require('express'),
@@ -39,9 +41,21 @@ userRouter.get('/logout', (req, res) => {
 userRouter.get('/users', (req,res)=>{
     User.find({},(err, allUsers)=>{
         if(err) return console.log(err)
-        res.render('../views/users_views/userindex', {users:allUsers})
+        res.render('users_views/userindex', {users: allUsers})
     })
-
 })
-    
+
+userRouter.get('/users/:id', (req, res) => {
+    User.find(req.params.id, (err, thatUser) => {
+        if(err) return console.log(err)
+        res.render('users_views/profile', {title: "This User", user: thatUser})
+    })
+})
+
+userRouter.get('/users/new', (req, res) => {
+    User.create(req.body, (err, newUser) => {
+
+    })
+})
+
 module.exports = userRouter

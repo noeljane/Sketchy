@@ -18,6 +18,7 @@ sketchRouter.get('/sketches/new', (req, res) => {
     res.render('canvas')
 })
 
+
 // Create new sketch
 sketchRouter.post('/sketches', (req, res) => {
     console.log("Incoming image YAYYY!")
