@@ -22,5 +22,7 @@
     </div>
 </div>
 
-<button type="button" class="btn btn-danger">Delete my profile!</button>
+<form id="deleteProfileForm" method="post" action="/users/<%= currentUser._id %>?_method=DELETE" >
+<button class="btn btn-danger">Delete my profile!</button>
+</form>
 
