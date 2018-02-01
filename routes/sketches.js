@@ -44,11 +44,12 @@ sketchRouter.post('/sketches', (req, res) => {
     })
 })
 
-// Edit sketch?🧐
+// Edit sketch
 sketchRouter.patch('/sketches/:id', (req, res)=>{
     Sketch.findById(req.params.id, req.body, (err,updatedSketch)=>{
         if(err) return console.log(err)
-        res.json({message: "Sketch updated!", sketch:updatedSketch})
+        res.render('sketches_views/editsketch', {title: "edit", sketch:updatedSketch})
+        //res.json({message: "Sketch updated!", sketch:updatedSketch})
     })
 })
 

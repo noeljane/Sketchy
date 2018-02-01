@@ -42,6 +42,10 @@ function getRandomImage () {
 function displayImage(url) {
     var $img = $('<img>')
     $img.attr('src', url)
+    $img.css({
+        'width':'300px',
+        'height':'auto'
+    })
     $imageContainer.html($img)
   }
 
@@ -50,10 +54,15 @@ $searchBtn.on('click', searchButton)
 
 $('#giphy-form').on('submit', function(evt) {
     var giphy_url = $('#giphy-image-container').children('img').first().attr('src')
+    
     $('#url-field').val(giphy_url)
     var imgUrl = myCanvas.toDataURL()
     console.log(imgUrl)
     $('#sketchy-url-field').val(imgUrl)
+    $('#giphy-image-container').find('img').css({
+        'width':'300px',
+        'height':'auto'
+    })
 })
 
 
