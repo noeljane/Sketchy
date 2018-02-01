@@ -19,11 +19,11 @@ const
 	Sketch = require('./models/Sketch.js'),
 	sketchRoutes = require('./routes/sketches.js'),
 	request = require('request'),
-    apiKey = process.env.APIKEY
+	apiKey = process.env.APIKEY,
+	methodOverride = require("method-override")
 	
 	
 	
-app.use(cors())
 
 // Environment port
 const
@@ -46,6 +46,7 @@ app.use(cookieParser())
 app.use(bodyParser.urlencoded({extended: true}))
 app.use(bodyParser.json())
 app.use(flash())
+app.use(methodOverride("_method"))
 
 // ejs configuration
 app.set('view engine', 'ejs')

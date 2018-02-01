@@ -1,2 +1,12 @@
 <h1>edit sketch here</h1>
-<img src=<%= sketch.imgUrl %> />
+<%= sketch%>
+
+<form id="giphy-form" method="post" action="/sketches/<%= sketch.id%>/edit?_method=PATCH" >
+    <input id="url-field" type="hidden" name="giphy_url" value="<%= sketch.giphy_url%>"/><br />
+    <input type="text" name="title" value="<%= sketch.title %>" placeholder="Title" /><br />
+    <input type="text" name="tag" value="<%= sketch.tag%>" placeholder="Add a tag" /><br />
+    <input id="sketchy-url-field" type="hidden" name="imgUrl" value="<%= sketch.imgUrl%>" />
+    <img src="<%= sketch.imgUrl%>">
+    <img src="<%= sketch.giphy_url%>">
+    <button>Save My Sketchyyyyy</button>
+</form>
