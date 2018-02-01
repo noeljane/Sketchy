@@ -27,7 +27,7 @@ sketchRouter.get('/sketches/:id', (req, res) => {
     Sketch.findById(req.params.id, (err, thatSketch) => {
         if(err) return console.log(err)
         //res.json(thatSketch)
-        res.render('sketches_views/showsketches', {title: "This sketch", sketch:thatSketch})
+        res.render('sketches_views/showsketches', {title: "This sketch", sketch: thatSketch})
     })
 })
 
