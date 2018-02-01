@@ -10,3 +10,7 @@
     <img src="<%= sketch.giphy_url%>">
     <button>Save My Sketchyyyyy</button>
 </form>
+
+<form method="post" action="/sketches/<%= sketch.id%>?_method=DELETE">
+    <button>Delete</button>
+</form>

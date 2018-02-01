@@ -1,5 +1,6 @@
 <h1><%=title %> is called: <%= sketch.title %></h1>
-
+<img src=<%= sketch.giphy_url %> />
 <img src=<%= sketch.imgUrl %> />
-<button>edit</button>
+<button onclick="window.location.href='/sketches/<%= sketch.id%>/edit?_method=PATCH'">Edit</button>
+
 
