@@ -53,7 +53,6 @@ sketchRouter.patch('/sketches/:id/edit', (req, res)=>{
     })
 })
 
-
 // Delete a specific sketch
 sketchRouter.delete('/sketches/:id', (req, res) => {
     Sketch.findByIdAndRemove(req.params.id, (err, deletedSketch) => {
