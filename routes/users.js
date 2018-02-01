@@ -36,22 +36,30 @@ userRouter.get('/logout', (req, res) => {
     res.redirect('/')
 })
 
-userRouter.get('/users', (req,res)=>{
+userRouter.get('/users', isLoggedIn, (req,res)=>{
     User.find({},(err, allUsers)=>{
         if(err) return console.log(err)
         res.render('users_views/userindex', {users: allUsers})
     })
 })
 
-userRouter.get('/users/:id', (req, res) => {
-    User.find(req.params.id, (err, thatUser) => {
+userRouter.get('/users/:id', isLoggedIn, (req, res) => {
+    User.findById(req.params.id, (err, thatUser) => {
         if(err) return console.log(err)
-        res.render('users_views/profile', {title: "This User", user: thatUser})
+        res.render('users_views/usershow', {title: "This User", user: thatUser})
     })
 })
 
 userRouter.get('/users/new', (req, res) => {
     User.create(req.body, (err, newUser) => {
+
+    })
+})
+
+userRouter.delete('/users/:id', (req,res)=>{
+    User.findByIdAndRemove(req.params.id, (err, deletedUser)=>{
+        if(err) return console.log(err)
+        res.redirect('/')
 
     })
 })

@@ -3,7 +3,6 @@ const
     express = require('express'),
     sketchRouter = new express.Router(),
     Sketch = require('../models/Sketch.js')
-    userRoutes = require('./routes/users.js'),
 
 // Get all sketches
 sketchRouter.get('/sketches', (req, res) => {
@@ -46,6 +45,7 @@ sketchRouter.get('/sketches/:id/edit', (req, res)=>{
     })
     
 })
+
 
 // update sketch
 sketchRouter.patch('/sketches/:id/edit', (req, res)=>{
