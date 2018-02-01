@@ -3,6 +3,7 @@ const
     express = require('express'),
     sketchRouter = new express.Router(),
     Sketch = require('../models/Sketch.js')
+    userRoutes = require('./routes/users.js'),
 
 // Get all sketches
 sketchRouter.get('/sketches', (req, res) => {
@@ -46,7 +47,6 @@ sketchRouter.get('/sketches/:id/edit', (req, res)=>{
     
 })
 
-
 // update sketch
 sketchRouter.patch('/sketches/:id/edit', (req, res)=>{
     console.log(req.body)
@@ -54,12 +54,6 @@ sketchRouter.patch('/sketches/:id/edit', (req, res)=>{
         res.render('sketches_views/showsketches', {title: "This sketch", sketch: updatedSketch})
     })
 })
-
-
-
-
-
-
 
 // Delete a specific sketch
 sketchRouter.delete('/sketches/:id', (req, res) => {
