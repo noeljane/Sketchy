@@ -36,8 +36,9 @@ sketchRouter.get('/sketches/:id', (req, res) => {
 // Create new sketch
 sketchRouter.post('/sketches', (req, res) => {
     console.log("Incoming image YAYYY!")
-    console.log(req.body)
-    Sketch.create(req.body, (err, newSketch) => {
+    var newSketch = new Sketch(req.body)
+    newSketch._by = req.user.id
+    newSketch.save((err,newSketch)=>{
         if(err) return console.log(err)
         res.json({message: "Sketch created! 🐲", sketch: newSketch})
     })
