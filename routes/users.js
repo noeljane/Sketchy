@@ -1,5 +1,3 @@
-import { userInfo } from 'os';
-
 // User routes
 const
     express = require('express'),
@@ -38,6 +36,7 @@ userRouter.get('/logout', (req, res) => {
     res.redirect('/')
 })
 
+// Get all users
 userRouter.get('/users', (req,res)=>{
     User.find({},(err, allUsers)=>{
         if(err) return console.log(err)
@@ -45,17 +44,17 @@ userRouter.get('/users', (req,res)=>{
     })
 })
 
-userRouter.get('/users/:id', (req, res) => {
-    User.find(req.params.id, (err, thatUser) => {
-        if(err) return console.log(err)
-        res.render('users_views/profile', {title: "This User", user: thatUser})
-    })
-})
-
+// Create new user
 userRouter.get('/users/new', (req, res) => {
     User.create(req.body, (err, newUser) => {
-
+        if(err) return console.log(err)
+        res.render('users_views/usernew', {title: "New User", user: newUser})
     })
 })
+
+// Patch a specific user
+// userRouter.patch('/users/:id', (req, res) => {
+//     User.findBy
+// })
 
 module.exports = userRouter
