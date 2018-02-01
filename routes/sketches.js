@@ -18,7 +18,6 @@ sketchRouter.get('/sketches/new', (req, res) => {
     res.render('canvas')
 })
 
-
 // Create new sketch
 sketchRouter.post('/sketches', (req, res) => {
     console.log("Incoming image YAYYY!")
@@ -46,7 +45,6 @@ sketchRouter.get('/sketches/:id/edit', (req, res)=>{
     
 })
 
-
 // update sketch
 sketchRouter.patch('/sketches/:id/edit', (req, res)=>{
     console.log(req.body)
@@ -59,7 +57,8 @@ sketchRouter.patch('/sketches/:id/edit', (req, res)=>{
 sketchRouter.delete('/sketches/:id', (req, res) => {
     Sketch.findByIdAndRemove(req.params.id, (err, deletedSketch) => {
         if(err) return console.log(err)
-        res.json({message: "Sketch deleted! 🐲"})
+        res.redirect('/sketches')
+        //res.json({message: "Sketch deleted! 🐲"})
     })
 })
 
