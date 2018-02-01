@@ -10,11 +10,11 @@
         </li>
       </ul>
       <% if(currentUser) { %>
-        <span id="loggedinas"><%= "Logged in as: " + currentUser.name %></span>
+        <span id="loggedinas"><%= "Hello " + currentUser.name %></span>
         <a class="nav-link nav-item my-2 my-md-0" id="navlogoutbtn" href="/logout">Logout</a>
       <% } else { %>
         <a class="nav-link nav-item my-2 my-md-0" id="navloginbtn" href="/login">Login</a>
-        <a class="nav-link nav-item my-2 my-md-0" id="navsignupbtn" href="/login">Sign Up</a>
+        <a class="nav-link nav-item my-2 my-md-0" id="navsignupbtn" href="/signup">Sign Up</a>
       <% } %>
     </div>
   </nav>

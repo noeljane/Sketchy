@@ -36,7 +36,7 @@ userRouter.get('/logout', (req, res) => {
     res.redirect('/')
 })
 
-
+// Show all users
 userRouter.get('/users', isLoggedIn, (req,res)=>{
     User.find({},(err, allUsers)=>{
         if(err) return console.log(err)
@@ -52,7 +52,7 @@ userRouter.get('/users', (req,res) => {
     })
 })
 
-
+// Show specific user
 userRouter.get('/users/:id', isLoggedIn, (req, res) => {
     User.findById(req.params.id, (err, thatUser) => {
         if(err) return console.log(err)
@@ -62,7 +62,6 @@ userRouter.get('/users/:id', isLoggedIn, (req, res) => {
 
 
 // Create new user
-
 userRouter.get('/users/new', (req, res) => {
     User.create(req.body, (err, newUser) => {
         if(err) return console.log(err)
@@ -70,7 +69,7 @@ userRouter.get('/users/new', (req, res) => {
     })
 })
 
-
+// Delete user
 userRouter.delete('/users/:id', (req,res) => {
     User.findByIdAndRemove(req.params.id, (err, deletedUser) => {
         if(err) return console.log(err)
@@ -78,10 +77,13 @@ userRouter.delete('/users/:id', (req,res) => {
     })
 })
 
-// Patch a specific user
-// userRouter.patch('/users/:id', (req, res) => {
-//     User.findBy
-// })
+// Update a specific user
+userRouter.patch('/users/:id', (req, res) => {
+    User.findByIdAndUpdate(req.params.id, (err, updatedUser) => {
+        if(err) return console.log(err)
+        res.json({message: "User updated!", user: updatedUser})
+    })
+})
 
 
 module.exports = userRouter
