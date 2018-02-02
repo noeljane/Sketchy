@@ -44,7 +44,8 @@ sketchRouter.get('/sketches/:id', (req, res) => {
 sketchRouter.get('/sketches/:id/edit', (req, res)=>{
     Sketch.findById(req.params.id, (err, sketch)=>{
         if(err) return console.log(err)
-        if(req.user.id === sketch._by) {
+        if((req.user.id) == (sketch._by)) {
+            console.log('You own this sketch!')
             res.render('sketches_views/editsketch', {sketch:sketch})
         } else {
             res.redirect('/sketches/' + req.params.id)
