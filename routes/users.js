@@ -61,27 +61,24 @@ userRouter.get('/users/:id', isLoggedIn, (req, res) => {
 })
 
 
-// Create new user
-userRouter.get('/users/new', (req, res) => {
-    User.create(req.body, (err, newUser) => {
-        if(err) return console.log(err)
-        res.render('users_views/usernew', {title: "New User", user: newUser})
-    })
-})
-
 // Delete user
-userRouter.delete('/users/:id', (req,res) => {
+userRouter.delete('/users/:id', isLoggedIn, (req,res) => {
     User.findByIdAndRemove(req.params.id, (err, deletedUser) => {
         if(err) return console.log(err)
         res.redirect('/')
     })
 })
 
+// Get edit user view
+userRouter.get('/profile/edit', isLoggedIn, (req, res) => {
+    res.render('users_views/edituser', {user: req.user})
+})
+
 // Update a specific user
-userRouter.patch('/users/:id', (req, res) => {
-    User.findByIdAndUpdate(req.params.id, (err, updatedUser) => {
+userRouter.patch('/users/:id', isLoggedIn, (req, res) => {
+    User.findByIdAndUpdate(req.params.id, req.body, { new: true }, (err, updatedUser) => {
         if(err) return console.log(err)
-        res.json({message: "User updated!", user: updatedUser})
+        res.redirect('/profile')
     })
 })
 
