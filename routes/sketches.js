@@ -42,16 +42,15 @@ sketchRouter.get('/sketches/:id', (req, res) => {
 })
 // get edit sketch view
 sketchRouter.get('/sketches/:id/edit', (req, res)=>{
-    // if(req.user.id === sketch._by) {
-        Sketch.findById(req.params.id, (err, sketchToEdit)=>{
-            res.render('sketches_views/editsketch', {sketch:sketchToEdit})
+    Sketch.findById(req.params.id, (err, sketch)=>{
+        if(err) return console.log(err)
+        if(req.user.id === sketch._by) {
+            res.render('sketches_views/editsketch', {sketch:sketch})
+        } else {
+            res.redirect('/sketches/' + req.params.id)
+            //add flash message here
+        }
         })
-    // }else {
-    //     Sketch.findbyId(req.params.id, (err, thisSketch)=>{
-    //         res.render('/sketches/:id', {sketch: thisSketch})
-    //     })
-        
-    // }
     
     
 })
@@ -71,6 +70,8 @@ sketchRouter.delete('/sketches/:id', (req, res) => {
         res.redirect('/sketches')
         //res.json({message: "Sketch deleted! 🐲"})
     })
+
+    
 })
 
 
