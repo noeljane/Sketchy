@@ -1,4 +1,10 @@
 <% include sketch %>
-<button onclick="window.location.href='/sketches/<%= sketch.id%>/edit?_method=PATCH'">Edit</button>
+
+
+<% if(user.id === sketch._by.id){ %>
+    <button onclick="window.location.href='/sketches/<%= sketch.id%>/edit?_method=PATCH'">Edit</button>
+<% } %>
+
+
 <button onclick="window.location.href='/sketches'">go back</button>
 
