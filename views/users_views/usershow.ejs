@@ -2,7 +2,12 @@
 
 <h3><%= user.name %> Gallery</h3>
 
-<%=sketches %>
+<% sketches.forEach(function(s){ %>
+    <h3>Title:<%= s.title %> </h3>
+    <h6>Id:<%= s.id %> </h6>
+    <img src='<%= s.imgUrl %>' />
+    <img src='<%= s.giphy_url %>' />
 
-<ul>
-</ul>
+<% }) %>
+
+
