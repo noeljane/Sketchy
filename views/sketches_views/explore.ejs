@@ -1,10 +1,5 @@
 <h1>Sketches</h1>
 
-<% sketches.forEach(function(s){ %>
-    <h3>Title:<%= s.title %> </h3>
-    <h6>Id:<%= s.id %> </h6>
-    <h6>User:<%= s._by %> </h6>
-    <img src='<%= s.imgUrl %>' />
-    <img src='<%= s.giphy_url %>' />
-
+<% sketches.forEach(function(sketch){ %>
+    <% include sketch %>
 <% }) %>

@@ -1,0 +1,13 @@
+<h1><%= sketch.title %></h1>
+<div class="row">
+    <div class="col-md">
+        <a href="/sketches/<%= sketch._id %>"><img class="img-fluid" src=<%= sketch.giphy_url %> /></a>
+    </div>
+    <div class="col-md">
+        <img class="img-fluid" src=<%= sketch.imgUrl %> />
+    </div>
+</div>
+
+<div class="row">
+    By: <%= sketch._by.name %>
+</div>

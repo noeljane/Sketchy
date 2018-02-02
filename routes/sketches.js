@@ -6,7 +6,7 @@ const
 
 // Get all sketches
 sketchRouter.get('/sketches', (req, res) => {
-    Sketch.find({}, (err, allSketches) => {
+    Sketch.find({}).populate('_by').exec((err, allSketches) => {
         if(err) return console.log(err)
         res.render('sketches_views/explore', {sketches: allSketches})
     })
@@ -31,7 +31,7 @@ sketchRouter.post('/sketches', (req, res) => {
 
 // Get specific sketch
 sketchRouter.get('/sketches/:id', (req, res) => {
-    Sketch.findById(req.params.id, (err, thatSketch) => {
+    Sketch.findById(req.params.id).populate('_by').exec((err, thatSketch) => {
         if(err) return console.log(err)
         //res.json(thatSketch)
         res.render('sketches_views/showsketches', {title: "This sketch", sketch:thatSketch})
