@@ -2,6 +2,8 @@
 const
     express = require('express'),
     passport = require('passport'),
+    User = require('../models/User.js'),
+    Sketch = require('../models/Sketch.js')
     userRouter = new express.Router()
 
 function isLoggedIn(req, res, next) {
@@ -56,7 +58,10 @@ userRouter.get('/users', (req,res) => {
 userRouter.get('/users/:id', isLoggedIn, (req, res) => {
     User.findById(req.params.id, (err, thatUser) => {
         if(err) return console.log(err)
-        res.render('users_views/usershow', {title: "This User", user: thatUser})
+        Sketch.find({"_by": req.params.id}, (err,userSketches)=>{
+            if(err) return console.log(err)
+            res.render('users_views/usershow', {title: "This User", user: thatUser, sketches: userSketches})
+        })
     })
 })
 
