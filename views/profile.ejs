@@ -22,7 +22,8 @@
     </div>
 </div>
 
-<form id="deleteProfileForm" method="post" action="/users/<%= currentUser._id %>?_method=DELETE" >
-<button class="btn btn-danger">Delete my profile!</button>
-</form>
 
+<form id="deleteProfileForm" method="post" action="/users/<%= currentUser._id %>?_method=DELETE" >
+<button class="btn btn-danger">Delete Profile!</button>
+</form>
+<a href="/profile/edit" class="btn btn-danger">Edit Profile</a>
