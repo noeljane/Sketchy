@@ -4,6 +4,7 @@ const
     sketchRouter = new express.Router(),
     Sketch = require('../models/Sketch.js')
 
+
 // Get all sketches
 sketchRouter.get('/sketches', (req, res) => {
     Sketch.find({}).populate('_by').exec((err, allSketches) => {
@@ -14,8 +15,10 @@ sketchRouter.get('/sketches', (req, res) => {
 
 // Form to create new sketch
 sketchRouter.get('/sketches/new', (req, res) => {
-    console.log('route')
-    res.render('canvas')
+    if (req.user) {
+        res.render('canvas')
+    } else
+        res.redirect('/')  
 })
 
 // Create new sketch
@@ -40,9 +43,15 @@ sketchRouter.get('/sketches/:id', (req, res) => {
 // get edit sketch view
 sketchRouter.get('/sketches/:id/edit', (req, res)=>{
     Sketch.findById(req.params.id, (err, sketch)=>{
-        res.render('sketches_views/editsketch', {sketch})
-    })
-    
+        if(err) return console.log(err)
+        if((req.user.id) == (sketch._by)) {
+            console.log('You own this sketch!')
+            res.render('sketches_views/editsketch', {sketch:sketch})
+        } else {
+            res.redirect('/sketches/' + req.params.id)
+            //add flash message here
+        }
+        })   
 })
 
 // update sketch
@@ -60,6 +69,8 @@ sketchRouter.delete('/sketches/:id', (req, res) => {
         res.redirect('/sketches')
         //res.json({message: "Sketch deleted! 🐲"})
     })
+
+    
 })
 
 
