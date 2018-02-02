@@ -16,7 +16,7 @@ userRouter.get('/login', (req, res) => {
 })
     
 userRouter.post('/login', passport.authenticate('local-login', {
-    successRedirect: '/profile',
+    successRedirect: '/profile', //need to direct to /users/:id page
     failureRedirect: '/login'
 }))
     
