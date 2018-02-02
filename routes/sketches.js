@@ -51,9 +51,7 @@ sketchRouter.get('/sketches/:id/edit', (req, res)=>{
             res.redirect('/sketches/' + req.params.id)
             //add flash message here
         }
-        })
-    
-    
+        })   
 })
 
 // update sketch
