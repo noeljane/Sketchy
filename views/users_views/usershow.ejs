@@ -1,7 +1,7 @@
 <h1><%=title %>: <%=user.name %></h1>
 
 <h3><%= user.name %> Gallery</h3>
-
+<button onclick="window.location.href='/sketches/new'">make new sketchy</button>
 <% sketches.forEach(function(s){ %>
     <h3>Title:<%= s.title %> </h3>
     <h6>Id:<%= s.id %> </h6>
@@ -11,4 +11,4 @@
 <% }) %>
 
 <!-- user's show all sketch view, need to made card and link to -->
-
+<!-- make btn to sketch new -->

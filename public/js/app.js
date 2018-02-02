@@ -2,7 +2,7 @@ var $randomBtn = $('#random-btn');
 var $imageContainer = $('#giphy-image-container');
 var $searchBtn = $('#search-btn');
 var $input = $('#search-term');
-
+console.log('hookup')
 
 // Giphy API
 
