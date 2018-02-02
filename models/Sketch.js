@@ -5,7 +5,8 @@ const
         imgUrl: String,
         title: String,
         tag: String,
-        _by:{type:mongoose.Schema.Types.ObjectId, ref: 'User'},
+        // ref: 'User' = pointing to the collection in the mongoDB
+        _by: {type: mongoose.Schema.Types.ObjectId, ref: 'User'},
         giphy_url: String
     })
 

@@ -14,6 +14,7 @@ function searchButton () {
     }
 
     $.ajax(options).done(function(data) {
+        console.log(data)
         var randomNum = Math.ceil(Math.random() * (25 - 0) + 0)
         var giphy_url = data.data[randomNum].images.original.url
         displayImage(giphy_url)
