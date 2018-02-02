@@ -1,5 +1,4 @@
-<h1>edit sketch here</h1>
-<%= sketch%>
+<h1>So you want to edit your sketch here...</h1>
 
 <form id="giphy-form" method="post" action="/sketches/<%= sketch.id%>/edit?_method=PATCH" >
     <input id="url-field" type="hidden" name="giphy_url" value="<%= sketch.giphy_url%>"/><br />
@@ -8,9 +7,10 @@
     <input id="sketchy-url-field" type="hidden" name="imgUrl" value="<%= sketch.imgUrl%>" />
     <img src="<%= sketch.imgUrl%>">
     <img src="<%= sketch.giphy_url%>">
-    <button>Save My Sketchyyyyy</button>
+    <button>Update My Sketchyyyyy</button>
 </form>
 
 <form method="post" action="/sketches/<%= sketch.id%>?_method=DELETE">
     <button>Delete</button>
 </form>
+<button onclick="window.location.href='/sketches'">go back</button>

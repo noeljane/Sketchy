@@ -16,7 +16,7 @@ userRouter.get('/login', (req, res) => {
 })
     
 userRouter.post('/login', passport.authenticate('local-login', {
-    successRedirect: '/profile',
+    successRedirect: '/profile', 
     failureRedirect: '/login'
 }))
     
@@ -30,7 +30,8 @@ userRouter.post('/signup', passport.authenticate('local-signup', {
 }))
     
 userRouter.get('/profile', isLoggedIn, (req, res) => {
-    res.render('profile', {user: req.user})
+    // res.render('profile', {user: req.user})
+    res.redirect(`/users/${req.user._id}`)
 })
     
 userRouter.get('/logout', (req, res) => {
@@ -70,7 +71,7 @@ userRouter.get('/users/:id', isLoggedIn, (req, res) => {
 userRouter.delete('/users/:id', isLoggedIn, (req,res) => {
     User.findByIdAndRemove(req.params.id, (err, deletedUser) => {
         if(err) return console.log(err)
-        res.redirect('/')
+        res.redirect('/logout')
     })
 })
 
