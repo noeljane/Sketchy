@@ -1,5 +1,5 @@
 const
-	dotenv = require('dotenv').config()
+	dotenv = require('dotenv').config(),
     express = require('express'),
     app = express(),
     ejsLayouts = require('express-ejs-layouts'),
@@ -12,8 +12,7 @@ const
 	session = require('express-session'),
 	MongoDBStore = require('connect-mongodb-session')(session),
 	passport = require('passport'),
-	passportConfig = require
-	('./config/passport.js'),
+	passportConfig = require('./config/passport.js'),
 	User = require('./models/User.js'),
 	userRoutes = require('./routes/users.js'),
 	Sketch = require('./models/Sketch.js'),
