@@ -59,10 +59,22 @@ sketchRouter.get('/sketches/:id/edit', (req, res)=>{
 
 // update sketch
 sketchRouter.patch('/sketches/:id/edit', (req, res)=>{
-    console.log(req.body)
-    Sketch.findByIdAndUpdate(req.params.id, req.body, {new: true}, (err, updatedSketch)=>{
-        res.render('sketches_views/showsketches', {title: "This sketch", user:req.user,sketch: updatedSketch})
+    
+    Sketch.findById(req.params.id, (err, sketchUpdated) => {
+        if(err) return console.log(err)
+        const sketchUpdatedData = {}
+        for(field in req.body){
+            if(req.body[field] != "") sketchUpdatedData[field] = req.body[field]
+        }
+        Object.assign(sketchUpdated, sketchUpdatedData)
+        sketchUpdated.save((err, savedSketch) => {
+            if(err) return console.log(err)
+            console.log(savedSketch)
+        })
     })
+    // Sketch.findByIdAndUpdate(req.params.id, req.body, {new: true}, (err, updatedSketch)=>{
+    //     res.render('sketches_views/showsketches', {title: "This sketch", user:req.user,sketch: updatedSketch})
+    // })
 })
 
 // Delete a specific sketch
