@@ -32,11 +32,11 @@ sketchRouter.post('/sketches', (req, res) => {
     })
 })
 
+
 // Get specific sketch
 sketchRouter.get('/sketches/:id', (req, res) => {
     Sketch.findById(req.params.id).populate('_by').exec((err, thatSketch) => {
         if(err) return console.log(err)
-        //res.json(thatSketch)
         res.render('sketches_views/showsketches', {title: "This sketch", sketch:thatSketch})
     })
 })
