@@ -1,5 +1,5 @@
 
-<% if(user.id === sketch._by){ %>
+<% if(user.id === sketch._by.id){ %>
     <button onclick="window.location.href='/sketches/<%= sketch.id%>/edit?_method=PATCH'">Edit</button>
     <button onclick="window.location.href='/users/<%=user.id %>'">See My Gallery</button>
 <% } else { %>
