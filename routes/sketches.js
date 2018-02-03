@@ -29,7 +29,7 @@ sketchRouter.post('/sketches', (req, res) => {
     newSketch._by = req.user && req.user.id
     newSketch.save((err,newSketch)=>{
         if(err) return console.log(err)
-        res.render('sketches_views/showsketches', {title: "New sketch!", sketch: newSketch})
+        res.render('sketches_views/showsketches', {title: "New sketch!", user: req.user, sketch: newSketch})
     })
 })
 
@@ -68,7 +68,7 @@ sketchRouter.delete('/sketches/:id', (req, res) => {
     Sketch.findByIdAndRemove(req.params.id, (err, deletedSketch) => {
         if(err) return console.log(err)
         res.redirect('/sketches')
-        //res.json({message: "Sketch deleted! 🐲"})
+       
     })
 
     
