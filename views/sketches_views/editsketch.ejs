@@ -12,6 +12,6 @@
 </form>
 
 <form method="post" action="/sketches/<%= sketch.id%>?_method=DELETE">
-    <button>Delete</button>
+    <button onclick="return confirm('So... You want to delete your sketchy?')">Delete</button>
 </form>
 <button onclick="window.location.href='/users/<%= user.id%>'">go back</button>
