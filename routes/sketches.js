@@ -81,7 +81,7 @@ sketchRouter.patch('/sketches/:id/edit', (req, res)=>{
 sketchRouter.delete('/sketches/:id', (req, res) => {
     Sketch.findByIdAndRemove(req.params.id, (err, deletedSketch) => {
         if(err) return console.log(err)
-        res.redirect('/sketches')
+        res.redirect('/users/' + req.user.id)
        
     })
 
