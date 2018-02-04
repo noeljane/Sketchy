@@ -1,5 +1,5 @@
 
-<h1><%= sketch.title %></h1>
+<!-- <h1><%= sketch.title %></h1>
 
 <div class="row">
     <div class="col-md">
@@ -11,6 +11,18 @@
             By: <%= sketch._by.name %>
         </span>
     </div>
+</div> -->
+
+
+<div class="card">
+        <div id="card-thumb" >
+                <img class="card-img-left" src="<%= sketch.giphy_url %>" alt="Card image cap">
+                <img class="card-img-right" src="<%= sketch.imgUrl %>" alt="Card image cap">
+        </div>
+   
+        <div id="card-desc" class="card-body">
+          <h5 class="card-title"><%= sketch.title %></h5>
+          <p class="card-text"><%= sketch.tag%></p>
+          <a href="#" class="btn" style="background-color:#F7D841; color:#4E4846;">Check out <%= sketch._by.name %>' gallery</a>
+        </div>
 </div>
-
-
