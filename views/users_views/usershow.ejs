@@ -2,30 +2,20 @@
 <div class="text-center">
         <button onclick="window.location.href='/sketches/new'" class="btn" style="background-color:#F7D841; color:#4E4846;">make new sketchy</button>
 </div>
-
-     
+    
 <% sketches.forEach(function(s){ %>
         <div class="card">
-    <div id="card-thumb" >
-      <img class="card-img-left" src="<%= s.giphy_url %>" alt="Card image cap">
-      <img class="card-img-right" src="<%= s.imgUrl %>" alt="Card image cap">
-    </div>
+                <div id="card-thumb" >
+                        <img class="card-img-left" src="<%= s.giphy_url %>" alt="Card image cap">
+                        <img class="card-img-right" src="<%= s.imgUrl %>" alt="Card image cap">
+                </div>
 
-    <!-- <h6>Id:<%= s.id %> </h6> -->
-    <!-- <img src='<%= s.imgUrl %>' />
-    <img src='<%= s.giphy_url %>' /> -->
-    <div id="card-desc" class="card-body">
-                <h5 class="card-title">
-                <a href="/sketches/<%= s._id %>"><%= s.title %></a>
-                </h5>
-
-                <p class="card-text"><%= s.tag%></p>
-                
-    </div>
-
-    <!-- <h3>
-                <a href="/sketches/<%= s._id %>">Title:<%= s.title %></a> 
-                </h3> -->
+                <div id="card-desc" class="card-body">
+                        <h5 class="card-title">
+                        <a href="/sketches/<%= s._id %>"><%= s.title %></a>
+                        </h5>
+                        <p class="card-text"><%= s.tag%></p>
+                </div>    
         </div>
 <% }) %>
 

@@ -12,6 +12,17 @@
     color: white;
 }
 
+.container{
+    max-width: 86rem !important;
+}
+
+
+@media (max-width: 1374px) {
+    .container{
+        max-width: 43rem !important;
+    } 
+}
+
 .card{
     width: 40rem;
     height: 500px;
