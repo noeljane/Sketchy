@@ -11,3 +11,26 @@
 #loggedinas, #navlogoutbtn, #navloginbtn, #navsignupbtn {
     color: white;
 }
+
+.card{
+    width: 40rem;
+    height: 500px;
+    margin: 0px 0px 50px 0px;
+    float: left;
+    margin: 1rem;
+}
+
+#card-thumb{
+    height: 320px;
+    background: #f8f8f8;
+}
+.card-img-left{
+    width: 20rem;
+    position: absolute;
+    left: 0px;
+}
+.card-img-right{
+    width: 20rem;
+    position: absolute;
+    right: 0px;
+}

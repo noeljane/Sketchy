@@ -1,46 +1,25 @@
-<!-- <nav class="navbar navbar-expand-sm navbar-dark bg-primary">
-    <a class="navbar-brand" href="/">Sketchy</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item">
-          <a class="nav-link" id="navexplorebtn" href="/sketches">Explore</a>
-        </li>
-      </ul>
-      <% if(currentUser) { %>
-        <span id="loggedinas"><%= "Hello " + currentUser.name %></span>
-        <a class="nav-link nav-item my-2 my-md-0" id="navlogoutbtn" href="/logout">Logout</a>
-      <% } else { %>
-        <a class="nav-link nav-item my-2 my-md-0" id="navloginbtn" href="/login">Login</a>
-        <a class="nav-link nav-item my-2 my-md-0" id="navsignupbtn" href="/signup">Sign Up</a>
-      <% } %>
-    </div>
-  </nav> -->
-
-  <nav class="navbar navbar-expand-lg navbar-light bg-primary">
-      <a class="navbar-brand" href="/">Sketchy</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+  <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #8DFCF9;" >
+      <a class="navbar-brand" href="/" style="font-size: 30px; color:#4E4846;">Sketchy</a>
+      <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation" >
+        <span class="navbar-toggler-icon" ></span>
+      </button> -->
       <div class="collapse navbar-collapse" id="navbarNavDropdown" >
-        <ul class="navbar-nav" >
+        <ul class="navbar-nav flex-row ml-md-auto d-none d-md-flex" >
           <li class="nav-item active">
-            <a class="nav-link" href="/sketches">Explore <span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="/sketches" style="font-size: 20px;">Explore <span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/sketches/new">Create a New Sketchy</a>
+            <a class="nav-link" href="/sketches/new" style="font-size: 20px;">Create a New Sketchy</a>
           </li>
-          <li class="nav-item">
+          <!-- <li class="nav-item">
             <a class="nav-link" href="#">TDB</a>
-          </li>
+          </li> -->
 
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:#A0489A"">
               <% if(currentUser) { %>
-            <div id="loggedinas"><%= "Hello " + currentUser.name %></div>
-            <a class="nav-link nav-item my-2 my-md-0" id="navlogoutbtn" href="/logout">Logout</a>
+            <div id="loggedinas" style="font-size: 20px; color:#A0489A";><%= "Hello " + currentUser.name %></div>
+            <!-- <a class="nav-link nav-item my-2 my-md-0" id="navlogoutbtn" href="/logout">Logout</a> -->
             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
               <a class="dropdown-item" href="/profile">Go My Sketchy</a>
               <a class="dropdown-item" href="/profile/edit">Edit My Profile</a>
@@ -55,6 +34,9 @@
 
             </a>
             
+          </li>
+          <li>
+              <a class="nav-link nav-item my-2 my-md-0" id="navlogoutbtn" href="/logout" style="font-size: 20px;">Logout</a>
           </li>
         </ul>
       </div>
