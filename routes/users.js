@@ -13,7 +13,7 @@ function isLoggedIn(req, res, next) {
 }   
 // Login in Route
 userRouter.get('/login', (req, res) => {
-    res.render('login')
+    res.render('login', {message: req.flash('loginMessage')})
 })
 
 //New Session Started 
@@ -24,7 +24,7 @@ userRouter.post('/login', passport.authenticate('local-login', {
 
 // New User  
 userRouter.get('/signup', (req, res) => {
-    res.render('signup')
+    res.render('signup', {message: req.flash('signupMessage')})
 })
    
 // Create User
@@ -93,10 +93,6 @@ userRouter.patch('/users/:id', isLoggedIn, (req, res) => {
             res.redirect('/profile')
         })
     })
-    // User.findByIdAndUpdate(req.params.id, req.body, { new: true }, (err, updatedUser) => {
-    //     if(err) return console.log(err)
-    //     res.redirect('/profile')
-    // })
 })
 
 
