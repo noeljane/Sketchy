@@ -75,6 +75,9 @@ app.use('/', userRoutes)
 // Sketch routes
 app.use('/', sketchRoutes)
 
+// Google auth routes
+app.use('/auth', userRoutes)
+
 // Root route
 app.get('/', (req, res) => {
 	res.render('index')

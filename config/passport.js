@@ -1,7 +1,21 @@
 const 
     passport = require('passport'), 
     LocalStrategy = require('passport-local').Strategy,
-    User = require('../models/User.js')
+    GoogleStrategy = require('passport-google-oauth20'),
+    User = require('../models/User.js'),
+    clientId = process.env.CLIENTID,
+    clientSecret = process.env.CLIENTSECRET
+
+// Google oauth
+passport.use(
+    new GoogleStrategy ({
+        callbackURL: 'auth/google/redirect',
+        clientID: clientId,
+        clientSecret: clientSecret
+    }, () => {
+        console.log('passport callback function fired')
+    })
+)
 
 passport.serializeUser((user,done)=>{
     done(null, user.id)

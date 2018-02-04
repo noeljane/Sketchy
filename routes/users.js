@@ -105,6 +105,16 @@ userRouter.delete('/users/:id', isLoggedIn, (req,res) => {
 })
 
 
+// Auth with Google
+userRouter.get('/google', passport.authenticate('google', {
+    scope: ['profile']
+}))
+
+// Callback route for Google to redirect to
+userRouter.get('/google/redirect', passport.authenticate('google'), (req, res) => {
+    res.send('You reached the callback URI')
+})
+
 
 
 module.exports = userRouter
