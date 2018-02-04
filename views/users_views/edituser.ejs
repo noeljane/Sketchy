@@ -1,8 +1,8 @@
 <form method="post" action="/users/<%= user.id %>?_method=PATCH">
     
-    <div class="mx-auto form-group" style="width: 200px; margin: 1rem;" >
+    <div class="mx-auto form-group" style="width: 300px; margin: 1rem;" >
         
-        <h5>Edit Your Profile</h5>
+        <h4>Edit Your Profile</h4>
 
         <label for="exampleInputEmail1">Username</label>
         <input type="text" class="form-control"  aria-describedby="emailHelp" name="name" value="<%= user.name %>">
@@ -10,7 +10,9 @@
         <label for="email">Email</label>
         <input type="text" class="form-control"  value="<%= user.email %>">
         <div class="form-group"></div>
-        <button class="btn" style="background-color:#F7D841; color:#4E4846;">Confirm Update</button>    
-        
+        <button class="btn btn-block" style="background-color: #ea4c89; color:white;margin: 30px 0 0 0; padding:0.2rem 0rem;">Confirm Update</button>    
+    <hr>
     </div>
+    
 </form>
+

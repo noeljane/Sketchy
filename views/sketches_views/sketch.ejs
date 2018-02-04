@@ -6,7 +6,8 @@
    
         <div id="card-desc" class="card-body">
           <h5 class="card-title"><%= sketch.title %></h5>
+          <hr>
           <p class="card-text"><%= sketch.tag%></p>
-          <a href="#" class="btn" style="background-color:#F7D841; color:#4E4846;">Check out <%= sketch._by.name %>' gallery</a>
+          <a href="/users/<%=sketch._by.id %>" class="btn btn-outline-secondary btn-block" style="background-color:white; color: #ea4c89;">Check out <%= sketch._by.name %>'s gallery</a>
         </div>
 </div>
