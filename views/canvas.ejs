@@ -1,34 +1,40 @@
 <div id="main-container">
 
-<!-- giphy -->
-<div id="giphy-box" style="float:left">
-<button id="random-btn">Get random Image</button>
-<div>
-        <input type="text" id="search-term" placeholder="search">
-        <button id="search-btn">Search</button>
-</div>
-<div id="giphy-image-container"></div>
+    <!-- giphy -->
+    <div id="giphy">
+        <div id="giphy-box">
+            <button id="random-btn"class="btn btn-secondary btn-sm">Get a random Image</button>
+            <span style="margin: 0px 0px 0px 10px"> or </span> 
+            <span>
+                    <input class="form-control" type="text" id="search-term" placeholder="search">
+                    <button id="search-btn" class="btn btn-secondary btn-sm">Search</button>
+            </span>  
+            <div id="giphy-image-container"></div> 
+        </div>
+        <div>
+            <form id="giphy-form" method="post" action="/sketches">
+                <input class="form-control" type="text" name="title" placeholder="Title" />
+                <input class="form-control" type="text" name="tag" placeholder="Add a tag" />
+                <input id="sketchy-url-field" type="hidden" name="imgUrl" />
+                <input id="url-field" type="hidden" name="giphy_url" />
+                <button class="btn btn-secondary btn-sm">Save My Sketchy</button>
+            </form>
+        </div>
+    </div>
 
-<form id="giphy-form" method="post" action="/sketches">
-    <input id="url-field" type="hidden" name="giphy_url" /><br />
-    <input type="text" name="title" placeholder="Title" /><br />
-    <input type="text" name="tag" placeholder="Add a tag" /><br />
-    <input id="sketchy-url-field" type="hidden" name="imgUrl" />
-    <button>Save My Sketchyyyyy</button>
-</form>
-</div>
+    <!--user canvas-->
+    <div id="canvas">
+        <div id="sketchy-box" style="float:right">
+            <div id="canvas-image-container">
+                <canvas id="myCanvas" width="600" height="600"></canvas>
+            </div>
 
-<!--user canvas-->
-<div id="sketchy-box" style="float:right">
-<div id="canvas-image-container">
-    <canvas id="myCanvas" width="600" height="600"></canvas>
-</div>
+            <button id="clear-btn" class="btn btn-secondary btn-sm">Clear</button>
+            <button id="undo-btn" class="btn btn-secondary btn-sm">Undo</button>
+            <input type="color" id="color-picker">
+            <input type="range" id="brush-size" min="1" max="50" value="10">
 
-<button id="undo-btn">Undo</button>
-<button id="clear-btn">Clear</button>
-<input type="color" id="color-picker">
-<input type="range" id="brush-size" min="1" max="50" value="10">
-
-</div>
+        </div>
+    </div>
 </div>
 <script src="/js/app.js"></script>
