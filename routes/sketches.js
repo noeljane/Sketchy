@@ -72,10 +72,6 @@ sketchRouter.patch('/sketches/:id/edit', (req, res)=>{
        })
    })
     
-    
-    // Sketch.findByIdAndUpdate(req.params.id, req.body, {new: true}, (err, updatedSketch)=>{
-    //     res.render('sketches_views/showsketches', {title: "This sketch", user:req.user,sketch: updatedSketch})
-    // })
 })
 
 // Delete a specific sketch

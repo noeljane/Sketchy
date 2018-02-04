@@ -79,10 +79,24 @@ userRouter.get('/profile/edit', isLoggedIn, (req, res) => {
 
 // Update a specific user
 userRouter.patch('/users/:id', isLoggedIn, (req, res) => {
-    User.findByIdAndUpdate(req.params.id, req.body, { new: true }, (err, updatedUser) => {
-        if(err) return console.log(err)
-        res.redirect('/profile')
+    User.findById(req.params.id, (err,updatedUser)=>{
+        if(err) console.log(err)
+        const updatedUserData = {}
+        for(field in req.body) {
+            if(req.body[field] != "")
+            updatedUserData[field] = req.body[field]
+        }
+        Object.assign(updatedUser, updatedUserData)
+        updatedUser.save((err,savedUser)=>{
+            if(err) return console.log(err)
+            console.log(savedUser)
+            res.redirect('/profile')
+        })
     })
+    // User.findByIdAndUpdate(req.params.id, req.body, { new: true }, (err, updatedUser) => {
+    //     if(err) return console.log(err)
+    //     res.redirect('/profile')
+    // })
 })
 
 
