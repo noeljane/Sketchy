@@ -1,30 +1,19 @@
-<h1>edit user view</h1>
-
-<!-- <div class="page-header">
-
-        <h1><%= user.name %></h1>
+<form method="post" action="/users/<%= user.id %>?_method=PATCH">
     
-        <a href="/logout" class="btn btn-default btn-sm">Logout</a>
-    
+<div class="mx-auto form-group" style="width: 200px; margin: 1rem;" >
+        <h5>Edit Your Profile</h5>
+
+    <label for="exampleInputEmail1">Username</label>
+        <input type="text" class="form-control"  aria-describedby="emailHelp" name="name" value="<%= user.name %>">
+    <div class="form-group"></div>
+        <label for="email">Email</label>
+        <input type="text" class="form-control"  value="<%= user.email %>">
+    <div class="form-group"></div>
+    <button class="btn" style="background-color:#F7D841; color:#4E4846;">Confirm Update</button>
     </div>
-    <div class="row">
-        <div class="col-sm-6 col-sm-offset-3">
-            <div class="well">
+    </div>
     
-                <h3>Locally Stored User</h3>
-    
-                <p>
-                    <strong>Name</strong>: <%= user.name %><br>
-                    <strong>id</strong>: <%= user._id %><br>
-                    <strong>email</strong>: <%= user.email %><br>
-                </p>
-                    
-            </div>
-        </div>
-    </div> -->
-    
-    <form method="post" action="/users/<%= user.id %>?_method=PATCH">
-        Username: <input type="text" name="name" value="<%= user.name %>"><br>
-        Email: <input type="text" name="email" value="<%= user.email %>">
-        <button>Confirm Update</button>
+       
+       
     </form>
+</div>
