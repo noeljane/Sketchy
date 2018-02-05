@@ -100,7 +100,7 @@ To run this app, locally, you will need to register for your own API keys and do
  
 
 4.  Get an APIKEY from [Giphy](https://developers.giphy.com/)
-5. Get a Client ID and Client secret from [Google Developers](https://developers.google.com/) 
+5. Get a Client ID and Client secret from [Google Developers API](https://console.developers.google.com/apis/) 
 
 6. API keys should have no space in them. Use these 
 
