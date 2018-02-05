@@ -68,7 +68,7 @@ sketchRouter.patch('/sketches/:id/edit', (req, res)=>{
        updatedSketch.save((err,savedSketch)=>{
            if(err) return console.log(err)
            console.log(savedSketch)
-           res.redirect('sketches_views/showsketches', {user: req.user})
+           res.redirect('/sketches/'+ req.params.id)
        })
    })
     
