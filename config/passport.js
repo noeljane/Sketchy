@@ -3,7 +3,6 @@ const
     LocalStrategy = require('passport-local').Strategy,
     GoogleStrategy = require('passport-google-oauth20'),
     User = require('../models/User.js'),
-    keys = require('./keys'),
     clientId = process.env.CLIENTID,
     clientSecret = process.env.CLIENTSECRET
 
