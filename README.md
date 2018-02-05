@@ -61,6 +61,8 @@ After we completed the foundation, the rest of the project was a bit more comple
 
 Once we had most of our MVP complete, we did a lot of testing to find bugs and correct them and finalize issues.  
 
+--
+### API Documentation
 
 --
 ### Installation Instructions
