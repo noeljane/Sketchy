@@ -7,15 +7,12 @@ const
 
 // Get all sketches
 sketchRouter.get('/sketches', (req, res) => {
-    Sketch.find({}, (err, sketches) => {
-        if(err) console.log(err)
-        res.render('sketches_views/explore', {sketches})
-    })
-    // .populate('_by').exec((err, allSketches) => {
-    //     if(err) return console.log(err)
+    Sketch.find({})
+    .populate('_by').exec((err, allSketches) => {
+        if(err) return console.log(err)
 
-    //     res.render('sketches_views/explore', {sketches: allSketches})
-    // })
+        res.render('sketches_views/explore', {sketches: allSketches})
+    })
 })
 
 // Form to create new sketch
