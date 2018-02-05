@@ -5,7 +5,8 @@ const
     userSchema = new mongoose.Schema({
         name: String, 
         email: {type:String, unique:true},
-        password: String
+        password: String,
+        googleId: String
     })
 
 //Create Password digest

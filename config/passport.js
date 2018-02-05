@@ -3,19 +3,11 @@ const
     LocalStrategy = require('passport-local').Strategy,
     GoogleStrategy = require('passport-google-oauth20'),
     User = require('../models/User.js'),
+    keys = require('./keys'),
     clientId = process.env.CLIENTID,
     clientSecret = process.env.CLIENTSECRET
 
-// Google oauth
-passport.use(
-    new GoogleStrategy ({
-        callbackURL: 'auth/google/redirect',
-        clientID: clientId,
-        clientSecret: clientSecret
-    }, () => {
-        console.log('passport callback function fired')
-    })
-)
+
 
 passport.serializeUser((user,done)=>{
     done(null, user.id)
@@ -26,6 +18,34 @@ passport.deserializeUser((id,done)=>{
         done(err,user)
     })
 })
+    
+// Google oauth
+passport.use(
+    new GoogleStrategy ({
+        callbackURL: '/auth/google/redirect',
+        clientID: clientId,
+        clientSecret: clientSecret
+    }, (accessToken, refreshToken, profile, done) => {
+// Check if user already exist in our db
+        User.findOne({googleId: profile.id}).then((currentUser) => {
+            if(currentUser) {
+                // Already have the user
+                console.log('user is:', currentUser)
+                done(null, currentUser)
+            } else {
+                // If not create user in our db
+                new User({
+                    name: profile.displayName,
+                    googleId: profile.id
+                }).save().then((newUser) => {
+                    console.log('New user created' + newUser)
+                    done(null, newUser)
+                })
+            }
+        })
+    })
+)
+
 
 //Sign up
 passport.use('local-signup', new LocalStrategy({

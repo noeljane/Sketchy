@@ -19,7 +19,8 @@ const
 	sketchRoutes = require('./routes/sketches.js'),
 	request = require('request'),
 	apiKey = process.env.APIKEY,
-	methodOverride = require("method-override")
+	methodOverride = require("method-override"),
+	cookieSession = require('cookie-session')
 	
 	
 	
