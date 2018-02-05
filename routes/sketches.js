@@ -7,8 +7,7 @@ const
 
 // Get all sketches
 sketchRouter.get('/sketches', (req, res) => {
-    Sketch.find({})
-    .populate('_by').exec((err, allSketches) => {
+    Sketch.find({}).populate('_by').exec((err, allSketches) => {
         if(err) return console.log(err)
 
         res.render('sketches_views/explore', {sketches: allSketches})

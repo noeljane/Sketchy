@@ -12,7 +12,7 @@
           <hr>
           <p class="card-text"><%= sketch.tag%></p>
           <h1> <%= sketch%> </h1>
-          
+          <a href="/users/<%=sketch._by.id %>" class="btn btn-outline-secondary btn-block" style="background-color:white; color: #ea4c89;">Check out <%= sketch._by.name %>'s gallery</a>
         </div>
 </div>
 <% }) %>
