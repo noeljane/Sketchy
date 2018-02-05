@@ -47,7 +47,7 @@ sketchRouter.get('/sketches/:id/edit', (req, res)=>{
         if(err) return console.log(err)
         if((req.user.id) == (sketch._by)) {
             console.log('You own this sketch!')
-            res.render('sketches_views/editsketch', { sketch:sketch})
+            res.render('sketches_views/editsketch', { sketch:sketch, user: req.user})
         } else {
             res.redirect('/sketches/' + req.params.id)
             //add flash message here
@@ -68,7 +68,7 @@ sketchRouter.patch('/sketches/:id/edit', (req, res)=>{
        updatedSketch.save((err,savedSketch)=>{
            if(err) return console.log(err)
            console.log(savedSketch)
-           res.redirect('sketches_views/showsketches')
+           res.redirect('/sketches/'+ req.params.id)
        })
    })
     
