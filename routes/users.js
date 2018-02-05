@@ -100,7 +100,11 @@ userRouter.patch('/users/:id', isLoggedIn, (req, res) => {
 userRouter.delete('/users/:id', isLoggedIn, (req,res) => {
     User.findByIdAndRemove(req.params.id, (err, deletedUser) => {
         if(err) return console.log(err)
-        res.redirect('/logout')
+        Sketch.remove({_by:req.params.id}, (err, deletedSketches)=>{
+            if(err) return console.log(err)
+            res.redirect('/logout')
+        })
+        
     })
 })
 
