@@ -55,7 +55,7 @@
 
 #card-thumb{
     height: 320px;
-    background: #f8f8f8;
+    background: #ffffff;
 }
 .card-img-left{
     width: 20rem;
@@ -90,3 +90,19 @@
     margin: 0px 0px 10px 0px;
 }
 
+#HeroImage-container{
+ 
+    width: 70%;
+    padding: 40px 0px 0px 0px;
+    margin: 0 auto;
+
+
+}
+.hero-img-left{
+    width: 35%;
+    float: left;
+}
+.hero-img-right{
+    width: 60%;
+    float: right;
+}
