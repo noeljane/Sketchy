@@ -36,7 +36,10 @@ An app where you can play telephone pictionary and have a hilarious time.
 Screenshot of wireframe
 ![Screenshot of wireframe](./Screenshots/Sketchy_wireframe.jpg)
 
-### API Documentation
+
+![Screenshot of User-Session API](./Screenshots/User-Session-API.png)
+
+![Screenshot of Sketch API](./Screenshots/Sketch-API.png)
 
 --
 
@@ -73,7 +76,7 @@ Once we had most of our MVP complete, we did a lot of testing to find bugs and c
 * ??
 
 --
-### If we had more time
+### If we had more time:
 * Make code more DRY and clean
 * Add canvas edit 
 * Add web sockets for playing pictionary
