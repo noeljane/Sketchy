@@ -3,15 +3,14 @@ const
     LocalStrategy = require('passport-local').Strategy,
     GoogleStrategy = require('passport-google-oauth20'),
     User = require('../models/User.js'),
-    clientId = process.env.CLIENTID,
-    clientSecret = process.env.CLIENTSECRET
+    keys = require('./keys')
 
 // Google oauth
 passport.use(
     new GoogleStrategy ({
         callbackURL: 'auth/google/redirect',
-        clientID: clientId,
-        clientSecret: clientSecret
+        clientID: keys.google.clientID,
+        clientSecret: keys.google.clientSecret
     }, () => {
         console.log('passport callback function fired')
     })
