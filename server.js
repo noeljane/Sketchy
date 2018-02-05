@@ -45,6 +45,7 @@ app.use(cookieParser())
 app.use(bodyParser.urlencoded({extended: true}))
 app.use(bodyParser.json())
 app.use(flash())
+
 app.use(methodOverride("_method"))
 
 // ejs configuration
@@ -73,6 +74,9 @@ app.use('/', userRoutes)
 
 // Sketch routes
 app.use('/', sketchRoutes)
+
+// Google auth routes
+app.use('/auth', userRoutes)
 
 // Root route
 app.get('/', (req, res) => {

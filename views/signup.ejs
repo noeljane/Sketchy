@@ -1,7 +1,13 @@
 <!-- Philippe's code from Example -->
 <div class="mx-auto form-group" style="width: 300px; margin: 1rem;">
 
-    <h4 style="color:#4E4846">Sign up</h4>
+
+    <h1>Signup</h1>
+     <!-- show any messages that come back with authentication -->
+    <% if (message.length > 0) { %>
+        <div class="alert alert-danger"><%= message %></div>
+    <% } %>
+
 
     <form action="/signup" method="post">
         <div class="form-group">

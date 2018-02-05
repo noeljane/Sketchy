@@ -13,7 +13,7 @@ function isLoggedIn(req, res, next) {
 }   
 // Login in Route
 userRouter.get('/login', (req, res) => {
-    res.render('login')
+    res.render('login', {message: req.flash('loginMessage')})
 })
 
 //New Session Started 
@@ -24,7 +24,7 @@ userRouter.post('/login', passport.authenticate('local-login', {
 
 // New User  
 userRouter.get('/signup', (req, res) => {
-    res.render('signup')
+    res.render('signup', {message: req.flash('signupMessage')})
 })
    
 // Create User
@@ -79,9 +79,19 @@ userRouter.get('/profile/edit', isLoggedIn, (req, res) => {
 
 // Update a specific user
 userRouter.patch('/users/:id', isLoggedIn, (req, res) => {
-    User.findByIdAndUpdate(req.params.id, req.body, { new: true }, (err, updatedUser) => {
-        if(err) return console.log(err)
-        res.redirect('/profile')
+    User.findById(req.params.id, (err,updatedUser)=>{
+        if(err) console.log(err)
+        const updatedUserData = {}
+        for(field in req.body) {
+            if(req.body[field] != "")
+            updatedUserData[field] = req.body[field]
+        }
+        Object.assign(updatedUser, updatedUserData)
+        updatedUser.save((err,savedUser)=>{
+            if(err) return console.log(err)
+            console.log(savedUser)
+            res.redirect('/profile')
+        })
     })
 })
 
@@ -94,6 +104,16 @@ userRouter.delete('/users/:id', isLoggedIn, (req,res) => {
     })
 })
 
+
+// Auth with Google
+userRouter.get('/google', passport.authenticate('google', {
+    scope: ['profile']
+}))
+
+// Callback route for Google to redirect to
+userRouter.get('/google/redirect', passport.authenticate('google'), (req, res) => {
+    res.send('You reached the callback URI')
+})
 
 
 

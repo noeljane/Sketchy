@@ -33,14 +33,12 @@ sketchRouter.post('/sketches', (req, res) => {
     })
 })
 
-
 // Get specific sketch
 sketchRouter.get('/sketches/:id', (req, res) => {
     Sketch.findById(req.params.id).populate('_by').exec((err, thatSketch) => {
         if(err) return console.log(err)
         //res.json(thatSketch)
         res.render('sketches_views/showsketches', {title: "This sketch", user: req.user, sketch:thatSketch})
-
     })
 })
 // Get edit sketch view
@@ -49,7 +47,7 @@ sketchRouter.get('/sketches/:id/edit', (req, res)=>{
         if(err) return console.log(err)
         if((req.user.id) == (sketch._by)) {
             console.log('You own this sketch!')
-            res.render('sketches_views/editsketch', { sketch:sketch, user: req.user})
+            res.render('sketches_views/editsketch', { sketch:sketch})
         } else {
             res.redirect('/sketches/' + req.params.id)
             //add flash message here
@@ -59,29 +57,28 @@ sketchRouter.get('/sketches/:id/edit', (req, res)=>{
 
 // update sketch
 sketchRouter.patch('/sketches/:id/edit', (req, res)=>{
+    console.log(req.body)
+   Sketch.findById(req.params.id, (err,updatedSketch)=>{
+       if(err) console.log(err)
+       const updatedSketchData = {}
+       for(field in req.body) {
+           if(req.body[field] != "") updatedSketchData[field] = req.body[field]
+       }
+       Object.assign(updatedSketch, updatedSketchData)
+       updatedSketch.save((err,savedSketch)=>{
+           if(err) return console.log(err)
+           console.log(savedSketch)
+           res.redirect('sketches_views/showsketches')
+       })
+   })
     
-    // Sketch.findById(req.params.id, (err, sketchUpdated) => {
-    //     if(err) return console.log(err)
-    //     const sketchUpdatedData = {}
-    //     for(field in req.body){
-    //         if(req.body[field] != "") sketchUpdatedData[field] = req.body[field]
-    //     }
-    //     Object.assign(sketchUpdated, sketchUpdatedData)
-    //     sketchUpdated.save((err, savedSketch) => {
-    //         if(err) return console.log(err)
-    //         console.log(savedSketch)
-    //     })
-    // })
-    Sketch.findByIdAndUpdate(req.params.id, req.body, {new: true}, (err, updatedSketch)=>{
-        res.render('sketches_views/showsketches', {title: "This sketch", user:req.user,sketch: updatedSketch})
-    })
 })
 
 // Delete a specific sketch
 sketchRouter.delete('/sketches/:id', (req, res) => {
     Sketch.findByIdAndRemove(req.params.id, (err, deletedSketch) => {
         if(err) return console.log(err)
-        res.redirect('/users/' + req.user.id)
+        res.redirect('/sketches')
        
     })
 
