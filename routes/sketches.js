@@ -17,7 +17,7 @@ sketchRouter.get('/sketches', (req, res) => {
 // Form to create new sketch
 sketchRouter.get('/sketches/new', (req, res) => {
     if (req.user) {
-        res.render('canvas')
+        res.render('canvas', { message: req.flash('newSketchMessage')})
     } else
         res.redirect('/')  
 })
@@ -28,8 +28,14 @@ sketchRouter.post('/sketches', (req, res) => {
     var newSketch = new Sketch(req.body)
     newSketch._by = req.user 
     newSketch.save((err,newSketch)=>{
-        if(err) return console.log(err)
-        res.render('sketches_views/showsketches', {title: "New sketch!", user: req.user, sketch: newSketch})
+        if(err) {
+            if(err.name == "ValidationError") {
+                req.flash('newSketchMessage', 'Fill out all the fields, please')
+                res.redirect('/sketches/new')
+            }
+        } else {
+            res.render('sketches_views/showsketches', {title: "New sketch!", user: req.user, sketch: newSketch})
+        }
     })
 })
 
