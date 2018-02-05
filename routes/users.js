@@ -53,7 +53,7 @@ userRouter.get('/users', isLoggedIn, (req,res)=>{
     })
 })
 
-// Get all users
+// Get all users -DELETE??? 
 userRouter.get('/users', (req,res) => {
     User.find({}, (err, allUsers) => {
         if(err) return console.log(err)
