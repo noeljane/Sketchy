@@ -1,30 +1,30 @@
-  <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #8DFCF9;" >
-      <a class="navbar-brand" href="/" style="font-size: 30px; color:#4E4846;">Sketchy</a>
+  <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #444;" >
+      <a class="navbar-brand btn" href="/" style="font-size: 30px; color:white;">Sketchy</a>
       <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation" >
         <span class="navbar-toggler-icon" ></span>
       </button> -->
-      <div class="collapse navbar-collapse" id="navbarNavDropdown" >
+      <div class="collapse navbar-collapse" id="navbarNavDropdown"  >
         <ul class="navbar-nav flex-row ml-md-auto d-none d-md-flex" >
           <li class="nav-item active">
-            <a class="nav-link" href="/sketches" style="font-size: 20px;">Explore <span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="/sketches" style="font-size: 20px; color:#fff;">Explore <span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/sketches/new" style="font-size: 20px;">Create a New Sketchy</a>
+            <a class="nav-link" href="/sketches/new" style="font-size: 20px; color:#fff;">Create a New Sketchy</a>
           </li>
           <!-- <li class="nav-item">
             <a class="nav-link" href="#">TDB</a>
           </li> -->
 
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:#A0489A"">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:#ea4c89">
               <% if(currentUser) { %>
-            <div id="loggedinas" style="font-size: 20px; color:#A0489A";><%= "Hello " + currentUser.name %></div>
+            <div id="loggedinas" style="font-size: 20px; color: #ea4c89";><%= "Hello " + currentUser.name %></div>
             <!-- <a class="nav-link nav-item my-2 my-md-0" id="navlogoutbtn" href="/logout">Logout</a> -->
-            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <a class="dropdown-item" href="/profile">Go My Sketchy</a>
-              <a class="dropdown-item" href="/profile/edit">Edit My Profile</a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" style="background-color:#444">
+              <a class="dropdown-item" href="/profile" style="color:#ea4c89">Go My Sketchy</a>
+              <a class="dropdown-item" href="/profile/edit" style="color:#ea4c89">Edit My Profile</a>
               <form action="/users/<%= currentUser.id%>?_method=DELETE" method="POST">
-              <input onclick="return confirm('are you sure?')"class="dropdown-item" type="submit" value="Delete My Profile">
+              <input onclick="return confirm('Are you sure you want to delete it?')"class="dropdown-item" type="submit" value="Delete My Profile" style="color:#ea4c89">
              </form>
             </div>
           <% } else { %>

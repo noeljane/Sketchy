@@ -1,13 +1,14 @@
-
+<div class="text-center" style="margin: 10px 0px 0px 0px;">
 <% if(user.id === sketch._by.id){ %>
-    <button onclick="window.location.href='/sketches/<%= sketch.id%>/edit?_method=PATCH'">Edit</button>
-    <button onclick="window.location.href='/users/<%=user.id %>'">See My Gallery</button>
+    <button class="btn" onclick="window.location.href='/sketches/<%= sketch.id%>/edit?_method=PATCH'" style="background-color:  #FDBD4C; color:white">Edit</button>
+    <button class="btn" onclick="window.location.href='/users/<%=user.id %>'" style="background-color:  #ea4c89; color:white">Go Back To My Sketchy</button>
 <% } else { %>
-    <button onclick="window.location.href='/users/<%=sketch._by.id %>'">See User Gallery</button>
+    <button onclick="window.location.href='/users/<%=sketch._by.id %>'" style="background-color:   #ea4c89; color:white">See User Gallery</button>
 <% } %>
-
+</div>
+<div class="mx-auto form-group" style="width: 600px; margin: 1rem;">
 <% include sketch %>
-
+</div>
 
 
 
