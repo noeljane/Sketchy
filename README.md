@@ -73,14 +73,14 @@ Once we had most of our MVP complete, we did a lot of testing to find bugs and c
 ###Major Hurdles & Victories
 * Staying on top of merge conflicts
 * Fixing the edit and update bugs
-* ??
 
 --
 ### If we had more time:
 * Make code more DRY and clean
 * Add canvas edit 
 * Add web sockets for playing pictionary
-* Reveal the giphy photo after? 
+* Reveal the giphy photo after
+* Add more dream features (see Trello ICE board)
 __
 
 ### Installation Instructions
@@ -107,6 +107,7 @@ To run this app, locally, you will need to register for your own API keys and do
 * APIKEY=**************
 * CLIENTID=*************
 * CLIENTSECRET=*********
+* GOOGLECALLBACK=http://localhost:3000/auth/google/redirect
 
 7. Run npm install to install all packages
 8. Open up a new tab and run $mongod
