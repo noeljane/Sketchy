@@ -36,6 +36,10 @@ An app where you can play telephone pictionary and have a hilarious time.
 Screenshot of wireframe
 ![Screenshot of wireframe](./Screenshots/Sketchy_wireframe.jpg)
 
+### API Documentation
+
+--
+
 --
 
 ###Approach Taken
@@ -62,9 +66,20 @@ After we completed the foundation, the rest of the project was a bit more comple
 Once we had most of our MVP complete, we did a lot of testing to find bugs and correct them and finalize issues.  
 
 --
-### API Documentation
+
+###Major Hurdles & Victories
+* Staying on top of merge conflicts
+* Fixing the edit and update bugs
+* ??
 
 --
+### If we had more time
+* Make code more DRY and clean
+* Add canvas edit 
+* Add web sockets for playing pictionary
+* Reveal the giphy photo after? 
+__
+
 ### Installation Instructions
 
 For easy-start, go to this heroku app:
