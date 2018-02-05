@@ -1,3 +1,7 @@
+<% if (message.length > 0) { %>
+        <div class="alert alert-danger"><%= message %></div>
+    <% } %>
+
 <div id="main-container">
 
     <!-- giphy -->
@@ -13,6 +17,7 @@
         </div>
         <div>
             <form id="giphy-form" method="post" action="/sketches">
+            
                 <input class="form-control" type="text" name="title" placeholder="Title" />
                 <input class="form-control" type="text" name="tag" placeholder="Add a tag" />
                 <input id="sketchy-url-field" type="hidden" name="imgUrl" />
