@@ -22,9 +22,9 @@ passport.deserializeUser((id,done)=>{
 // Google oauth
 passport.use(
     new GoogleStrategy ({
-        callbackURL: callbackURL,
         clientID: clientId,
-        clientSecret: clientSecret
+        clientSecret: clientSecret,
+        callbackURL: callbackURL,
     }, (accessToken, refreshToken, profile, done) => {
 // Check if user already exist in our db
         User.findOne({googleId: profile.id}).then((currentUser) => {
