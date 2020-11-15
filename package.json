@@ -4,7 +4,7 @@
   "description": "WDI-54 Project 3",
   "main": "server.js",
   "dependencies": {
-    "bcrypt": "^1.0.3",
+    "bcrypt": "^3.0.4",
     "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.18.2",
     "connect-flash": "^0.1.1",
@@ -41,13 +41,13 @@
   "bugs": {
     "url": "https://github.com/kw23085/Sketchy/issues"
   },
-  "homepage": "https://github.com/kw23085/Sketchy#readme",  
+  "homepage": "https://github.com/kw23085/Sketchy#readme",
   "engines": {
-      "name": "sketchy2",
-      "description": "a really cool app made with really cool people",
-      "version": "2.0.0",
-      "engines": {
-        "node": "v14.3.0"
-      }  
+    "name": "sketchy2",
+    "description": "a really cool app made with really cool people",
+    "version": "2.0.0",
+    "engines": {
+      "node": "v14.3.0"
+    }
   }
 }
