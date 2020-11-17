@@ -127,6 +127,7 @@ app.get('/random/:tag', (req, res) => {
 
 
 app.listen(port, (err) => {
+	console.log("Boom bananas!")
 	console.log(err || "Server running on port " + port)
 })
 
