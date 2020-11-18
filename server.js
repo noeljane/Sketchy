@@ -130,5 +130,3 @@ app.listen(port, (err) => {
 	console.log("Boom bananas!")
 	console.log(err || "Server running on port " + port)
 })
-
-// mongodb+srv://noel:christmas@cluster0.wfiog.mongodb.net/sketchy2?retryWrites=true&w=majority
